@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      graphql_codegen:
+        options:
+          assetsPath: lib/graphql/**.graphql
+          clients:
+            - graphql
+            - graphql_flutter
+          outputDirectory: generated
+          scalars:
+            bigint:
+              type: int
+            timestamptz:
+              type: DateTime

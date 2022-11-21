@@ -1,0 +1,48 @@
+mutation CreateColor($user_id: String!, $hex: String!) {
+  insert_colors_one(object: { user_id: $user_id, hex: $hex }) {
+    id
+    hex
+    used_at
+    user_id
+  }
+}
+
+query GetColors($user_id: String!) {
+  colors(where: { user_id: { _eq: $user_id } }, order_by: { hex: asc }) {
+    id
+    hex
+    used_at
+    user_id
+  }
+}
+
+query GetNextColor($user_id: String!) {
+  colors(
+    limit: 1
+    where: { user_id: { _eq: $user_id } }
+    order_by: { used_at: asc }
+  ) {
+    id
+    hex
+    used_at
+    user_id
+  }
+}
+
+mutation UpdateColor($id: bigint!, $hex: String!) {
+  update_colors_by_pk(pk_columns: { id: $id }, _set: { hex: $hex }) {
+    id
+    hex
+    used_at
+    user_id
+  }
+}
+
+mutation DeleteColor($id: bigint!) {
+  delete_colors_by_pk(id: $id) {
+    id
+    hex
+    used_at
+    user_id
+  }
+}

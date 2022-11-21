@@ -1,0 +1,2363 @@
+schema {
+  query: query_root
+  mutation: mutation_root
+  subscription: subscription_root
+}
+scalar bigint
+scalar timestamptz
+"""
+columns and relationships of "colors"
+"""
+type colors {
+  hex: String!
+  id: bigint!
+  used_at: timestamptz!
+  user_id: String!
+}
+"""
+aggregated selection of "colors"
+"""
+type colors_aggregate {
+  aggregate: colors_aggregate_fields
+  nodes: [colors!]!
+}
+"""
+aggregate fields of "colors"
+"""
+type colors_aggregate_fields {
+  avg: colors_avg_fields
+  count(columns: [colors_select_column!], distinct: Boolean): Int!
+  max: colors_max_fields
+  min: colors_min_fields
+  stddev: colors_stddev_fields
+  stddev_pop: colors_stddev_pop_fields
+  stddev_samp: colors_stddev_samp_fields
+  sum: colors_sum_fields
+  var_pop: colors_var_pop_fields
+  var_samp: colors_var_samp_fields
+  variance: colors_variance_fields
+}
+"aggregate avg on columns"
+type colors_avg_fields {
+  id: Float
+}
+"aggregate max on columns"
+type colors_max_fields {
+  hex: String
+  id: bigint
+  used_at: timestamptz
+  user_id: String
+}
+"aggregate min on columns"
+type colors_min_fields {
+  hex: String
+  id: bigint
+  used_at: timestamptz
+  user_id: String
+}
+"""
+response of any mutation on the table "colors"
+"""
+type colors_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [colors!]!
+}
+"aggregate stddev on columns"
+type colors_stddev_fields {
+  id: Float
+}
+"aggregate stddev_pop on columns"
+type colors_stddev_pop_fields {
+  id: Float
+}
+"aggregate stddev_samp on columns"
+type colors_stddev_samp_fields {
+  id: Float
+}
+"aggregate sum on columns"
+type colors_sum_fields {
+  id: bigint
+}
+"aggregate var_pop on columns"
+type colors_var_pop_fields {
+  id: Float
+}
+"aggregate var_samp on columns"
+type colors_var_samp_fields {
+  id: Float
+}
+"aggregate variance on columns"
+type colors_variance_fields {
+  id: Float
+}
+"mutation root"
+type mutation_root {
+  """
+  delete data from the table: "colors"
+  """
+  delete_colors(
+    "filter the rows which have to be deleted"
+    where: colors_bool_exp!
+  ): colors_mutation_response
+  """
+  delete single row from the table: "colors"
+  """
+  delete_colors_by_pk(id: bigint!): colors
+  """
+  delete data from the table: "revisions"
+  """
+  delete_revisions(
+    "filter the rows which have to be deleted"
+    where: revisions_bool_exp!
+  ): revisions_mutation_response
+  """
+  delete single row from the table: "revisions"
+  """
+  delete_revisions_by_pk(id: bigint!): revisions
+  """
+  delete data from the table: "slices"
+  """
+  delete_slices(
+    "filter the rows which have to be deleted"
+    where: slices_bool_exp!
+  ): slices_mutation_response
+  """
+  delete single row from the table: "slices"
+  """
+  delete_slices_by_pk(id: bigint!): slices
+  """
+  delete data from the table: "slices_tags"
+  """
+  delete_slices_tags(
+    "filter the rows which have to be deleted"
+    where: slices_tags_bool_exp!
+  ): slices_tags_mutation_response
+  """
+  delete single row from the table: "slices_tags"
+  """
+  delete_slices_tags_by_pk(slice_id: bigint!, tag_id: bigint!): slices_tags
+  """
+  delete data from the table: "tags"
+  """
+  delete_tags(
+    "filter the rows which have to be deleted"
+    where: tags_bool_exp!
+  ): tags_mutation_response
+  """
+  delete single row from the table: "tags"
+  """
+  delete_tags_by_pk(id: bigint!): tags
+  """
+  delete data from the table: "users"
+  """
+  delete_users(
+    "filter the rows which have to be deleted"
+    where: users_bool_exp!
+  ): users_mutation_response
+  """
+  delete single row from the table: "users"
+  """
+  delete_users_by_pk(id: String!): users
+  """
+  insert data into the table: "colors"
+  """
+  insert_colors(
+    "the rows to be inserted"
+    objects: [colors_insert_input!]!,
+    "upsert condition"
+    on_conflict: colors_on_conflict
+  ): colors_mutation_response
+  """
+  insert a single row into the table: "colors"
+  """
+  insert_colors_one(
+    "the row to be inserted"
+    object: colors_insert_input!,
+    "upsert condition"
+    on_conflict: colors_on_conflict
+  ): colors
+  """
+  insert data into the table: "revisions"
+  """
+  insert_revisions(
+    "the rows to be inserted"
+    objects: [revisions_insert_input!]!,
+    "upsert condition"
+    on_conflict: revisions_on_conflict
+  ): revisions_mutation_response
+  """
+  insert a single row into the table: "revisions"
+  """
+  insert_revisions_one(
+    "the row to be inserted"
+    object: revisions_insert_input!,
+    "upsert condition"
+    on_conflict: revisions_on_conflict
+  ): revisions
+  """
+  insert data into the table: "slices"
+  """
+  insert_slices(
+    "the rows to be inserted"
+    objects: [slices_insert_input!]!,
+    "upsert condition"
+    on_conflict: slices_on_conflict
+  ): slices_mutation_response
+  """
+  insert a single row into the table: "slices"
+  """
+  insert_slices_one(
+    "the row to be inserted"
+    object: slices_insert_input!,
+    "upsert condition"
+    on_conflict: slices_on_conflict
+  ): slices
+  """
+  insert data into the table: "slices_tags"
+  """
+  insert_slices_tags(
+    "the rows to be inserted"
+    objects: [slices_tags_insert_input!]!,
+    "upsert condition"
+    on_conflict: slices_tags_on_conflict
+  ): slices_tags_mutation_response
+  """
+  insert a single row into the table: "slices_tags"
+  """
+  insert_slices_tags_one(
+    "the row to be inserted"
+    object: slices_tags_insert_input!,
+    "upsert condition"
+    on_conflict: slices_tags_on_conflict
+  ): slices_tags
+  """
+  insert data into the table: "tags"
+  """
+  insert_tags(
+    "the rows to be inserted"
+    objects: [tags_insert_input!]!,
+    "upsert condition"
+    on_conflict: tags_on_conflict
+  ): tags_mutation_response
+  """
+  insert a single row into the table: "tags"
+  """
+  insert_tags_one(
+    "the row to be inserted"
+    object: tags_insert_input!,
+    "upsert condition"
+    on_conflict: tags_on_conflict
+  ): tags
+  """
+  insert data into the table: "users"
+  """
+  insert_users(
+    "the rows to be inserted"
+    objects: [users_insert_input!]!,
+    "upsert condition"
+    on_conflict: users_on_conflict
+  ): users_mutation_response
+  """
+  insert a single row into the table: "users"
+  """
+  insert_users_one(
+    "the row to be inserted"
+    object: users_insert_input!,
+    "upsert condition"
+    on_conflict: users_on_conflict
+  ): users
+  """
+  update data of the table: "colors"
+  """
+  update_colors(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: colors_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: colors_set_input,
+    "filter the rows which have to be updated"
+    where: colors_bool_exp!
+  ): colors_mutation_response
+  """
+  update single row of the table: "colors"
+  """
+  update_colors_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: colors_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: colors_set_input,pk_columns: colors_pk_columns_input!  ): colors
+  """
+  update multiples rows of table: "colors"
+  """
+  update_colors_many(
+    "updates to execute, in order"
+    updates: [colors_updates!]!
+  ): [colors_mutation_response]
+  """
+  update data of the table: "revisions"
+  """
+  update_revisions(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: revisions_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: revisions_set_input,
+    "filter the rows which have to be updated"
+    where: revisions_bool_exp!
+  ): revisions_mutation_response
+  """
+  update single row of the table: "revisions"
+  """
+  update_revisions_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: revisions_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: revisions_set_input,pk_columns: revisions_pk_columns_input!  ): revisions
+  """
+  update multiples rows of table: "revisions"
+  """
+  update_revisions_many(
+    "updates to execute, in order"
+    updates: [revisions_updates!]!
+  ): [revisions_mutation_response]
+  """
+  update data of the table: "slices"
+  """
+  update_slices(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: slices_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: slices_set_input,
+    "filter the rows which have to be updated"
+    where: slices_bool_exp!
+  ): slices_mutation_response
+  """
+  update single row of the table: "slices"
+  """
+  update_slices_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: slices_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: slices_set_input,pk_columns: slices_pk_columns_input!  ): slices
+  """
+  update multiples rows of table: "slices"
+  """
+  update_slices_many(
+    "updates to execute, in order"
+    updates: [slices_updates!]!
+  ): [slices_mutation_response]
+  """
+  update data of the table: "slices_tags"
+  """
+  update_slices_tags(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: slices_tags_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: slices_tags_set_input,
+    "filter the rows which have to be updated"
+    where: slices_tags_bool_exp!
+  ): slices_tags_mutation_response
+  """
+  update single row of the table: "slices_tags"
+  """
+  update_slices_tags_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: slices_tags_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: slices_tags_set_input,pk_columns: slices_tags_pk_columns_input!  ): slices_tags
+  """
+  update multiples rows of table: "slices_tags"
+  """
+  update_slices_tags_many(
+    "updates to execute, in order"
+    updates: [slices_tags_updates!]!
+  ): [slices_tags_mutation_response]
+  """
+  update data of the table: "tags"
+  """
+  update_tags(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: tags_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: tags_set_input,
+    "filter the rows which have to be updated"
+    where: tags_bool_exp!
+  ): tags_mutation_response
+  """
+  update single row of the table: "tags"
+  """
+  update_tags_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: tags_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: tags_set_input,pk_columns: tags_pk_columns_input!  ): tags
+  """
+  update multiples rows of table: "tags"
+  """
+  update_tags_many(
+    "updates to execute, in order"
+    updates: [tags_updates!]!
+  ): [tags_mutation_response]
+  """
+  update data of the table: "users"
+  """
+  update_users(
+    "sets the columns of the filtered rows to the given values"
+    _set: users_set_input,
+    "filter the rows which have to be updated"
+    where: users_bool_exp!
+  ): users_mutation_response
+  """
+  update single row of the table: "users"
+  """
+  update_users_by_pk(
+    "sets the columns of the filtered rows to the given values"
+    _set: users_set_input,pk_columns: users_pk_columns_input!  ): users
+  """
+  update multiples rows of table: "users"
+  """
+  update_users_many(
+    "updates to execute, in order"
+    updates: [users_updates!]!
+  ): [users_mutation_response]
+}
+type query_root {
+  """
+  fetch data from the table: "colors"
+  """
+  colors(
+    "distinct select on columns"
+    distinct_on: [colors_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [colors_order_by!],
+    "filter the rows returned"
+    where: colors_bool_exp
+  ): [colors!]!
+  """
+  fetch aggregated fields from the table: "colors"
+  """
+  colors_aggregate(
+    "distinct select on columns"
+    distinct_on: [colors_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [colors_order_by!],
+    "filter the rows returned"
+    where: colors_bool_exp
+  ): colors_aggregate!
+  """
+  fetch data from the table: "colors" using primary key columns
+  """
+  colors_by_pk(id: bigint!): colors
+  """
+  fetch data from the table: "revisions"
+  """
+  revisions(
+    "distinct select on columns"
+    distinct_on: [revisions_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [revisions_order_by!],
+    "filter the rows returned"
+    where: revisions_bool_exp
+  ): [revisions!]!
+  """
+  fetch aggregated fields from the table: "revisions"
+  """
+  revisions_aggregate(
+    "distinct select on columns"
+    distinct_on: [revisions_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [revisions_order_by!],
+    "filter the rows returned"
+    where: revisions_bool_exp
+  ): revisions_aggregate!
+  """
+  fetch data from the table: "revisions" using primary key columns
+  """
+  revisions_by_pk(id: bigint!): revisions
+  """
+  fetch data from the table: "slices"
+  """
+  slices(
+    "distinct select on columns"
+    distinct_on: [slices_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [slices_order_by!],
+    "filter the rows returned"
+    where: slices_bool_exp
+  ): [slices!]!
+  """
+  fetch aggregated fields from the table: "slices"
+  """
+  slices_aggregate(
+    "distinct select on columns"
+    distinct_on: [slices_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [slices_order_by!],
+    "filter the rows returned"
+    where: slices_bool_exp
+  ): slices_aggregate!
+  """
+  fetch data from the table: "slices" using primary key columns
+  """
+  slices_by_pk(id: bigint!): slices
+  """
+  fetch data from the table: "slices_tags"
+  """
+  slices_tags(
+    "distinct select on columns"
+    distinct_on: [slices_tags_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [slices_tags_order_by!],
+    "filter the rows returned"
+    where: slices_tags_bool_exp
+  ): [slices_tags!]!
+  """
+  fetch aggregated fields from the table: "slices_tags"
+  """
+  slices_tags_aggregate(
+    "distinct select on columns"
+    distinct_on: [slices_tags_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [slices_tags_order_by!],
+    "filter the rows returned"
+    where: slices_tags_bool_exp
+  ): slices_tags_aggregate!
+  """
+  fetch data from the table: "slices_tags" using primary key columns
+  """
+  slices_tags_by_pk(slice_id: bigint!, tag_id: bigint!): slices_tags
+  """
+  fetch data from the table: "tags"
+  """
+  tags(
+    "distinct select on columns"
+    distinct_on: [tags_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [tags_order_by!],
+    "filter the rows returned"
+    where: tags_bool_exp
+  ): [tags!]!
+  """
+  fetch aggregated fields from the table: "tags"
+  """
+  tags_aggregate(
+    "distinct select on columns"
+    distinct_on: [tags_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [tags_order_by!],
+    "filter the rows returned"
+    where: tags_bool_exp
+  ): tags_aggregate!
+  """
+  fetch data from the table: "tags" using primary key columns
+  """
+  tags_by_pk(id: bigint!): tags
+  """
+  fetch data from the table: "users"
+  """
+  users(
+    "distinct select on columns"
+    distinct_on: [users_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [users_order_by!],
+    "filter the rows returned"
+    where: users_bool_exp
+  ): [users!]!
+  """
+  fetch aggregated fields from the table: "users"
+  """
+  users_aggregate(
+    "distinct select on columns"
+    distinct_on: [users_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [users_order_by!],
+    "filter the rows returned"
+    where: users_bool_exp
+  ): users_aggregate!
+  """
+  fetch data from the table: "users" using primary key columns
+  """
+  users_by_pk(id: String!): users
+}
+"""
+columns and relationships of "revisions"
+"""
+type revisions {
+  content: String!
+  created_at: timestamptz!
+  id: bigint!
+  slice_id: bigint!
+  updated_at: timestamptz!
+}
+"""
+aggregated selection of "revisions"
+"""
+type revisions_aggregate {
+  aggregate: revisions_aggregate_fields
+  nodes: [revisions!]!
+}
+"""
+aggregate fields of "revisions"
+"""
+type revisions_aggregate_fields {
+  avg: revisions_avg_fields
+  count(columns: [revisions_select_column!], distinct: Boolean): Int!
+  max: revisions_max_fields
+  min: revisions_min_fields
+  stddev: revisions_stddev_fields
+  stddev_pop: revisions_stddev_pop_fields
+  stddev_samp: revisions_stddev_samp_fields
+  sum: revisions_sum_fields
+  var_pop: revisions_var_pop_fields
+  var_samp: revisions_var_samp_fields
+  variance: revisions_variance_fields
+}
+"aggregate avg on columns"
+type revisions_avg_fields {
+  id: Float
+  slice_id: Float
+}
+"aggregate max on columns"
+type revisions_max_fields {
+  content: String
+  created_at: timestamptz
+  id: bigint
+  slice_id: bigint
+  updated_at: timestamptz
+}
+"aggregate min on columns"
+type revisions_min_fields {
+  content: String
+  created_at: timestamptz
+  id: bigint
+  slice_id: bigint
+  updated_at: timestamptz
+}
+"""
+response of any mutation on the table "revisions"
+"""
+type revisions_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [revisions!]!
+}
+"aggregate stddev on columns"
+type revisions_stddev_fields {
+  id: Float
+  slice_id: Float
+}
+"aggregate stddev_pop on columns"
+type revisions_stddev_pop_fields {
+  id: Float
+  slice_id: Float
+}
+"aggregate stddev_samp on columns"
+type revisions_stddev_samp_fields {
+  id: Float
+  slice_id: Float
+}
+"aggregate sum on columns"
+type revisions_sum_fields {
+  id: bigint
+  slice_id: bigint
+}
+"aggregate var_pop on columns"
+type revisions_var_pop_fields {
+  id: Float
+  slice_id: Float
+}
+"aggregate var_samp on columns"
+type revisions_var_samp_fields {
+  id: Float
+  slice_id: Float
+}
+"aggregate variance on columns"
+type revisions_variance_fields {
+  id: Float
+  slice_id: Float
+}
+"""
+columns and relationships of "slices"
+"""
+type slices {
+  created_at: timestamptz!
+  id: bigint!
+  """
+  fetch data from the table: "revisions"
+  """
+  revisions(
+    "distinct select on columns"
+    distinct_on: [revisions_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [revisions_order_by!],
+    "filter the rows returned"
+    where: revisions_bool_exp
+  ): [revisions!]!
+  """
+  fetch aggregated fields from the table: "revisions"
+  """
+  revisions_aggregate(
+    "distinct select on columns"
+    distinct_on: [revisions_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [revisions_order_by!],
+    "filter the rows returned"
+    where: revisions_bool_exp
+  ): revisions_aggregate!
+  "An array relationship"
+  tags(
+    "distinct select on columns"
+    distinct_on: [slices_tags_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [slices_tags_order_by!],
+    "filter the rows returned"
+    where: slices_tags_bool_exp
+  ): [slices_tags!]!
+  "An aggregate relationship"
+  tags_aggregate(
+    "distinct select on columns"
+    distinct_on: [slices_tags_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [slices_tags_order_by!],
+    "filter the rows returned"
+    where: slices_tags_bool_exp
+  ): slices_tags_aggregate!
+  trashed_at: timestamptz
+  user_id: String!
+}
+"""
+aggregated selection of "slices"
+"""
+type slices_aggregate {
+  aggregate: slices_aggregate_fields
+  nodes: [slices!]!
+}
+"""
+aggregate fields of "slices"
+"""
+type slices_aggregate_fields {
+  avg: slices_avg_fields
+  count(columns: [slices_select_column!], distinct: Boolean): Int!
+  max: slices_max_fields
+  min: slices_min_fields
+  stddev: slices_stddev_fields
+  stddev_pop: slices_stddev_pop_fields
+  stddev_samp: slices_stddev_samp_fields
+  sum: slices_sum_fields
+  var_pop: slices_var_pop_fields
+  var_samp: slices_var_samp_fields
+  variance: slices_variance_fields
+}
+"aggregate avg on columns"
+type slices_avg_fields {
+  id: Float
+}
+"aggregate max on columns"
+type slices_max_fields {
+  created_at: timestamptz
+  id: bigint
+  trashed_at: timestamptz
+  user_id: String
+}
+"aggregate min on columns"
+type slices_min_fields {
+  created_at: timestamptz
+  id: bigint
+  trashed_at: timestamptz
+  user_id: String
+}
+"""
+response of any mutation on the table "slices"
+"""
+type slices_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [slices!]!
+}
+"aggregate stddev on columns"
+type slices_stddev_fields {
+  id: Float
+}
+"aggregate stddev_pop on columns"
+type slices_stddev_pop_fields {
+  id: Float
+}
+"aggregate stddev_samp on columns"
+type slices_stddev_samp_fields {
+  id: Float
+}
+"aggregate sum on columns"
+type slices_sum_fields {
+  id: bigint
+}
+"""
+columns and relationships of "slices_tags"
+"""
+type slices_tags {
+  slice_id: bigint!
+  "An object relationship"
+  tag: tags!
+  tag_id: bigint!
+}
+"""
+aggregated selection of "slices_tags"
+"""
+type slices_tags_aggregate {
+  aggregate: slices_tags_aggregate_fields
+  nodes: [slices_tags!]!
+}
+"""
+aggregate fields of "slices_tags"
+"""
+type slices_tags_aggregate_fields {
+  avg: slices_tags_avg_fields
+  count(columns: [slices_tags_select_column!], distinct: Boolean): Int!
+  max: slices_tags_max_fields
+  min: slices_tags_min_fields
+  stddev: slices_tags_stddev_fields
+  stddev_pop: slices_tags_stddev_pop_fields
+  stddev_samp: slices_tags_stddev_samp_fields
+  sum: slices_tags_sum_fields
+  var_pop: slices_tags_var_pop_fields
+  var_samp: slices_tags_var_samp_fields
+  variance: slices_tags_variance_fields
+}
+"aggregate avg on columns"
+type slices_tags_avg_fields {
+  slice_id: Float
+  tag_id: Float
+}
+"aggregate max on columns"
+type slices_tags_max_fields {
+  slice_id: bigint
+  tag_id: bigint
+}
+"aggregate min on columns"
+type slices_tags_min_fields {
+  slice_id: bigint
+  tag_id: bigint
+}
+"""
+response of any mutation on the table "slices_tags"
+"""
+type slices_tags_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [slices_tags!]!
+}
+"aggregate stddev on columns"
+type slices_tags_stddev_fields {
+  slice_id: Float
+  tag_id: Float
+}
+"aggregate stddev_pop on columns"
+type slices_tags_stddev_pop_fields {
+  slice_id: Float
+  tag_id: Float
+}
+"aggregate stddev_samp on columns"
+type slices_tags_stddev_samp_fields {
+  slice_id: Float
+  tag_id: Float
+}
+"aggregate sum on columns"
+type slices_tags_sum_fields {
+  slice_id: bigint
+  tag_id: bigint
+}
+"aggregate var_pop on columns"
+type slices_tags_var_pop_fields {
+  slice_id: Float
+  tag_id: Float
+}
+"aggregate var_samp on columns"
+type slices_tags_var_samp_fields {
+  slice_id: Float
+  tag_id: Float
+}
+"aggregate variance on columns"
+type slices_tags_variance_fields {
+  slice_id: Float
+  tag_id: Float
+}
+"aggregate var_pop on columns"
+type slices_var_pop_fields {
+  id: Float
+}
+"aggregate var_samp on columns"
+type slices_var_samp_fields {
+  id: Float
+}
+"aggregate variance on columns"
+type slices_variance_fields {
+  id: Float
+}
+type subscription_root {
+  """
+  fetch data from the table: "colors"
+  """
+  colors(
+    "distinct select on columns"
+    distinct_on: [colors_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [colors_order_by!],
+    "filter the rows returned"
+    where: colors_bool_exp
+  ): [colors!]!
+  """
+  fetch aggregated fields from the table: "colors"
+  """
+  colors_aggregate(
+    "distinct select on columns"
+    distinct_on: [colors_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [colors_order_by!],
+    "filter the rows returned"
+    where: colors_bool_exp
+  ): colors_aggregate!
+  """
+  fetch data from the table: "colors" using primary key columns
+  """
+  colors_by_pk(id: bigint!): colors
+  """
+  fetch data from the table in a streaming manner : "colors"
+  """
+  colors_stream(
+    "maximum number of rows returned in a single batch"
+    batch_size: Int!,
+    "cursor to stream the results returned by the query"
+    cursor: [colors_stream_cursor_input]!,
+    "filter the rows returned"
+    where: colors_bool_exp
+  ): [colors!]!
+  """
+  fetch data from the table: "revisions"
+  """
+  revisions(
+    "distinct select on columns"
+    distinct_on: [revisions_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [revisions_order_by!],
+    "filter the rows returned"
+    where: revisions_bool_exp
+  ): [revisions!]!
+  """
+  fetch aggregated fields from the table: "revisions"
+  """
+  revisions_aggregate(
+    "distinct select on columns"
+    distinct_on: [revisions_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [revisions_order_by!],
+    "filter the rows returned"
+    where: revisions_bool_exp
+  ): revisions_aggregate!
+  """
+  fetch data from the table: "revisions" using primary key columns
+  """
+  revisions_by_pk(id: bigint!): revisions
+  """
+  fetch data from the table in a streaming manner : "revisions"
+  """
+  revisions_stream(
+    "maximum number of rows returned in a single batch"
+    batch_size: Int!,
+    "cursor to stream the results returned by the query"
+    cursor: [revisions_stream_cursor_input]!,
+    "filter the rows returned"
+    where: revisions_bool_exp
+  ): [revisions!]!
+  """
+  fetch data from the table: "slices"
+  """
+  slices(
+    "distinct select on columns"
+    distinct_on: [slices_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [slices_order_by!],
+    "filter the rows returned"
+    where: slices_bool_exp
+  ): [slices!]!
+  """
+  fetch aggregated fields from the table: "slices"
+  """
+  slices_aggregate(
+    "distinct select on columns"
+    distinct_on: [slices_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [slices_order_by!],
+    "filter the rows returned"
+    where: slices_bool_exp
+  ): slices_aggregate!
+  """
+  fetch data from the table: "slices" using primary key columns
+  """
+  slices_by_pk(id: bigint!): slices
+  """
+  fetch data from the table in a streaming manner : "slices"
+  """
+  slices_stream(
+    "maximum number of rows returned in a single batch"
+    batch_size: Int!,
+    "cursor to stream the results returned by the query"
+    cursor: [slices_stream_cursor_input]!,
+    "filter the rows returned"
+    where: slices_bool_exp
+  ): [slices!]!
+  """
+  fetch data from the table: "slices_tags"
+  """
+  slices_tags(
+    "distinct select on columns"
+    distinct_on: [slices_tags_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [slices_tags_order_by!],
+    "filter the rows returned"
+    where: slices_tags_bool_exp
+  ): [slices_tags!]!
+  """
+  fetch aggregated fields from the table: "slices_tags"
+  """
+  slices_tags_aggregate(
+    "distinct select on columns"
+    distinct_on: [slices_tags_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [slices_tags_order_by!],
+    "filter the rows returned"
+    where: slices_tags_bool_exp
+  ): slices_tags_aggregate!
+  """
+  fetch data from the table: "slices_tags" using primary key columns
+  """
+  slices_tags_by_pk(slice_id: bigint!, tag_id: bigint!): slices_tags
+  """
+  fetch data from the table in a streaming manner : "slices_tags"
+  """
+  slices_tags_stream(
+    "maximum number of rows returned in a single batch"
+    batch_size: Int!,
+    "cursor to stream the results returned by the query"
+    cursor: [slices_tags_stream_cursor_input]!,
+    "filter the rows returned"
+    where: slices_tags_bool_exp
+  ): [slices_tags!]!
+  """
+  fetch data from the table: "tags"
+  """
+  tags(
+    "distinct select on columns"
+    distinct_on: [tags_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [tags_order_by!],
+    "filter the rows returned"
+    where: tags_bool_exp
+  ): [tags!]!
+  """
+  fetch aggregated fields from the table: "tags"
+  """
+  tags_aggregate(
+    "distinct select on columns"
+    distinct_on: [tags_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [tags_order_by!],
+    "filter the rows returned"
+    where: tags_bool_exp
+  ): tags_aggregate!
+  """
+  fetch data from the table: "tags" using primary key columns
+  """
+  tags_by_pk(id: bigint!): tags
+  """
+  fetch data from the table in a streaming manner : "tags"
+  """
+  tags_stream(
+    "maximum number of rows returned in a single batch"
+    batch_size: Int!,
+    "cursor to stream the results returned by the query"
+    cursor: [tags_stream_cursor_input]!,
+    "filter the rows returned"
+    where: tags_bool_exp
+  ): [tags!]!
+  """
+  fetch data from the table: "users"
+  """
+  users(
+    "distinct select on columns"
+    distinct_on: [users_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [users_order_by!],
+    "filter the rows returned"
+    where: users_bool_exp
+  ): [users!]!
+  """
+  fetch aggregated fields from the table: "users"
+  """
+  users_aggregate(
+    "distinct select on columns"
+    distinct_on: [users_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [users_order_by!],
+    "filter the rows returned"
+    where: users_bool_exp
+  ): users_aggregate!
+  """
+  fetch data from the table: "users" using primary key columns
+  """
+  users_by_pk(id: String!): users
+  """
+  fetch data from the table in a streaming manner : "users"
+  """
+  users_stream(
+    "maximum number of rows returned in a single batch"
+    batch_size: Int!,
+    "cursor to stream the results returned by the query"
+    cursor: [users_stream_cursor_input]!,
+    "filter the rows returned"
+    where: users_bool_exp
+  ): [users!]!
+}
+"""
+columns and relationships of "tags"
+"""
+type tags {
+  "An object relationship"
+  color: colors!
+  color_id: bigint!
+  id: bigint!
+  name: String!
+  user_id: String!
+}
+"""
+aggregated selection of "tags"
+"""
+type tags_aggregate {
+  aggregate: tags_aggregate_fields
+  nodes: [tags!]!
+}
+"""
+aggregate fields of "tags"
+"""
+type tags_aggregate_fields {
+  avg: tags_avg_fields
+  count(columns: [tags_select_column!], distinct: Boolean): Int!
+  max: tags_max_fields
+  min: tags_min_fields
+  stddev: tags_stddev_fields
+  stddev_pop: tags_stddev_pop_fields
+  stddev_samp: tags_stddev_samp_fields
+  sum: tags_sum_fields
+  var_pop: tags_var_pop_fields
+  var_samp: tags_var_samp_fields
+  variance: tags_variance_fields
+}
+"aggregate avg on columns"
+type tags_avg_fields {
+  color_id: Float
+  id: Float
+}
+"aggregate max on columns"
+type tags_max_fields {
+  color_id: bigint
+  id: bigint
+  name: String
+  user_id: String
+}
+"aggregate min on columns"
+type tags_min_fields {
+  color_id: bigint
+  id: bigint
+  name: String
+  user_id: String
+}
+"""
+response of any mutation on the table "tags"
+"""
+type tags_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [tags!]!
+}
+"aggregate stddev on columns"
+type tags_stddev_fields {
+  color_id: Float
+  id: Float
+}
+"aggregate stddev_pop on columns"
+type tags_stddev_pop_fields {
+  color_id: Float
+  id: Float
+}
+"aggregate stddev_samp on columns"
+type tags_stddev_samp_fields {
+  color_id: Float
+  id: Float
+}
+"aggregate sum on columns"
+type tags_sum_fields {
+  color_id: bigint
+  id: bigint
+}
+"aggregate var_pop on columns"
+type tags_var_pop_fields {
+  color_id: Float
+  id: Float
+}
+"aggregate var_samp on columns"
+type tags_var_samp_fields {
+  color_id: Float
+  id: Float
+}
+"aggregate variance on columns"
+type tags_variance_fields {
+  color_id: Float
+  id: Float
+}
+"""
+columns and relationships of "users"
+"""
+type users {
+  created_at: timestamptz!
+  firebase_id: String!
+  id: String!
+}
+"""
+aggregated selection of "users"
+"""
+type users_aggregate {
+  aggregate: users_aggregate_fields
+  nodes: [users!]!
+}
+"""
+aggregate fields of "users"
+"""
+type users_aggregate_fields {
+  count(columns: [users_select_column!], distinct: Boolean): Int!
+  max: users_max_fields
+  min: users_min_fields
+}
+"aggregate max on columns"
+type users_max_fields {
+  created_at: timestamptz
+  firebase_id: String
+  id: String
+}
+"aggregate min on columns"
+type users_min_fields {
+  created_at: timestamptz
+  firebase_id: String
+  id: String
+}
+"""
+response of any mutation on the table "users"
+"""
+type users_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [users!]!
+}
+"""
+unique or primary key constraints on table "colors"
+"""
+enum colors_constraint {
+  """
+  unique or primary key constraint on columns "id"
+  """
+  colors_pkey
+}
+"""
+select columns of table "colors"
+"""
+enum colors_select_column {
+  "column name"
+  hex
+  "column name"
+  id
+  "column name"
+  used_at
+  "column name"
+  user_id
+}
+"""
+update columns of table "colors"
+"""
+enum colors_update_column {
+  "column name"
+  hex
+  "column name"
+  id
+  "column name"
+  used_at
+  "column name"
+  user_id
+}
+"ordering argument of a cursor"
+enum cursor_ordering {
+  "ascending ordering of the cursor"
+  ASC
+  "descending ordering of the cursor"
+  DESC
+}
+"column ordering options"
+enum order_by {
+  "in ascending order, nulls last"
+  asc
+  "in ascending order, nulls first"
+  asc_nulls_first
+  "in ascending order, nulls last"
+  asc_nulls_last
+  "in descending order, nulls first"
+  desc
+  "in descending order, nulls first"
+  desc_nulls_first
+  "in descending order, nulls last"
+  desc_nulls_last
+}
+"""
+unique or primary key constraints on table "revisions"
+"""
+enum revisions_constraint {
+  """
+  unique or primary key constraint on columns "id"
+  """
+  revisions_pkey
+}
+"""
+select columns of table "revisions"
+"""
+enum revisions_select_column {
+  "column name"
+  content
+  "column name"
+  created_at
+  "column name"
+  id
+  "column name"
+  slice_id
+  "column name"
+  updated_at
+}
+"""
+update columns of table "revisions"
+"""
+enum revisions_update_column {
+  "column name"
+  content
+  "column name"
+  created_at
+  "column name"
+  id
+  "column name"
+  slice_id
+  "column name"
+  updated_at
+}
+"""
+unique or primary key constraints on table "slices"
+"""
+enum slices_constraint {
+  """
+  unique or primary key constraint on columns "id"
+  """
+  slices_pkey
+}
+"""
+select columns of table "slices"
+"""
+enum slices_select_column {
+  "column name"
+  created_at
+  "column name"
+  id
+  "column name"
+  trashed_at
+  "column name"
+  user_id
+}
+"""
+unique or primary key constraints on table "slices_tags"
+"""
+enum slices_tags_constraint {
+  """
+  unique or primary key constraint on columns "tag_id", "slice_id"
+  """
+  slices_tags_pkey
+}
+"""
+select columns of table "slices_tags"
+"""
+enum slices_tags_select_column {
+  "column name"
+  slice_id
+  "column name"
+  tag_id
+}
+"""
+update columns of table "slices_tags"
+"""
+enum slices_tags_update_column {
+  "column name"
+  slice_id
+  "column name"
+  tag_id
+}
+"""
+update columns of table "slices"
+"""
+enum slices_update_column {
+  "column name"
+  created_at
+  "column name"
+  id
+  "column name"
+  trashed_at
+  "column name"
+  user_id
+}
+"""
+unique or primary key constraints on table "tags"
+"""
+enum tags_constraint {
+  """
+  unique or primary key constraint on columns "id"
+  """
+  tags_pkey
+}
+"""
+select columns of table "tags"
+"""
+enum tags_select_column {
+  "column name"
+  color_id
+  "column name"
+  id
+  "column name"
+  name
+  "column name"
+  user_id
+}
+"""
+update columns of table "tags"
+"""
+enum tags_update_column {
+  "column name"
+  color_id
+  "column name"
+  id
+  "column name"
+  name
+  "column name"
+  user_id
+}
+"""
+unique or primary key constraints on table "users"
+"""
+enum users_constraint {
+  """
+  unique or primary key constraint on columns "firebase_id"
+  """
+  users_firebase_id_key
+  """
+  unique or primary key constraint on columns "id"
+  """
+  users_id_key
+  """
+  unique or primary key constraint on columns "id"
+  """
+  users_pkey
+}
+"""
+select columns of table "users"
+"""
+enum users_select_column {
+  "column name"
+  created_at
+  "column name"
+  firebase_id
+  "column name"
+  id
+}
+"""
+update columns of table "users"
+"""
+enum users_update_column {
+  "column name"
+  created_at
+  "column name"
+  firebase_id
+  "column name"
+  id
+}
+"""
+Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'.
+"""
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  "does the column match the given case-insensitive pattern"
+  _ilike: String
+  _in: [String!]
+  "does the column match the given POSIX regular expression, case insensitive"
+  _iregex: String
+  _is_null: Boolean
+  "does the column match the given pattern"
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  "does the column NOT match the given case-insensitive pattern"
+  _nilike: String
+  _nin: [String!]
+  "does the column NOT match the given POSIX regular expression, case insensitive"
+  _niregex: String
+  "does the column NOT match the given pattern"
+  _nlike: String
+  "does the column NOT match the given POSIX regular expression, case sensitive"
+  _nregex: String
+  "does the column NOT match the given SQL regular expression"
+  _nsimilar: String
+  "does the column match the given POSIX regular expression, case sensitive"
+  _regex: String
+  "does the column match the given SQL regular expression"
+  _similar: String
+}
+"""
+Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'.
+"""
+input bigint_comparison_exp {
+  _eq: bigint
+  _gt: bigint
+  _gte: bigint
+  _in: [bigint!]
+  _is_null: Boolean
+  _lt: bigint
+  _lte: bigint
+  _neq: bigint
+  _nin: [bigint!]
+}
+"""
+Boolean expression to filter rows from the table "colors". All fields are combined with a logical 'AND'.
+"""
+input colors_bool_exp {
+  _and: [colors_bool_exp!]
+  _not: colors_bool_exp
+  _or: [colors_bool_exp!]
+  hex: String_comparison_exp
+  id: bigint_comparison_exp
+  used_at: timestamptz_comparison_exp
+  user_id: String_comparison_exp
+}
+"""
+input type for incrementing numeric columns in table "colors"
+"""
+input colors_inc_input {
+  id: bigint
+}
+"""
+input type for inserting data into table "colors"
+"""
+input colors_insert_input {
+  hex: String
+  id: bigint
+  used_at: timestamptz
+  user_id: String
+}
+"""
+input type for inserting object relation for remote table "colors"
+"""
+input colors_obj_rel_insert_input {
+  data: colors_insert_input!
+  "upsert condition"
+  on_conflict: colors_on_conflict
+}
+"""
+on_conflict condition type for table "colors"
+"""
+input colors_on_conflict {
+  constraint: colors_constraint!
+  update_columns: [colors_update_column!]! = []
+  where: colors_bool_exp
+}
+"""
+Ordering options when selecting data from "colors".
+"""
+input colors_order_by {
+  hex: order_by
+  id: order_by
+  used_at: order_by
+  user_id: order_by
+}
+"primary key columns input for table: colors"
+input colors_pk_columns_input {
+  id: bigint!
+}
+"""
+input type for updating data in table "colors"
+"""
+input colors_set_input {
+  hex: String
+  id: bigint
+  used_at: timestamptz
+  user_id: String
+}
+"""
+Streaming cursor of the table "colors"
+"""
+input colors_stream_cursor_input {
+  "Stream column input with initial value"
+  initial_value: colors_stream_cursor_value_input!
+  "cursor ordering"
+  ordering: cursor_ordering
+}
+"Initial value of the column from where the streaming should start"
+input colors_stream_cursor_value_input {
+  hex: String
+  id: bigint
+  used_at: timestamptz
+  user_id: String
+}
+input colors_updates {
+  "increments the numeric columns with given value of the filtered values"
+  _inc: colors_inc_input
+  "sets the columns of the filtered rows to the given values"
+  _set: colors_set_input
+  where: colors_bool_exp!
+}
+"""
+order by aggregate values of table "revisions"
+"""
+input revisions_aggregate_order_by {
+  avg: revisions_avg_order_by
+  count: order_by
+  max: revisions_max_order_by
+  min: revisions_min_order_by
+  stddev: revisions_stddev_order_by
+  stddev_pop: revisions_stddev_pop_order_by
+  stddev_samp: revisions_stddev_samp_order_by
+  sum: revisions_sum_order_by
+  var_pop: revisions_var_pop_order_by
+  var_samp: revisions_var_samp_order_by
+  variance: revisions_variance_order_by
+}
+"""
+input type for inserting array relation for remote table "revisions"
+"""
+input revisions_arr_rel_insert_input {
+  data: [revisions_insert_input!]!
+  "upsert condition"
+  on_conflict: revisions_on_conflict
+}
+"""
+order by avg() on columns of table "revisions"
+"""
+input revisions_avg_order_by {
+  id: order_by
+  slice_id: order_by
+}
+"""
+Boolean expression to filter rows from the table "revisions". All fields are combined with a logical 'AND'.
+"""
+input revisions_bool_exp {
+  _and: [revisions_bool_exp!]
+  _not: revisions_bool_exp
+  _or: [revisions_bool_exp!]
+  content: String_comparison_exp
+  created_at: timestamptz_comparison_exp
+  id: bigint_comparison_exp
+  slice_id: bigint_comparison_exp
+  updated_at: timestamptz_comparison_exp
+}
+"""
+input type for incrementing numeric columns in table "revisions"
+"""
+input revisions_inc_input {
+  id: bigint
+  slice_id: bigint
+}
+"""
+input type for inserting data into table "revisions"
+"""
+input revisions_insert_input {
+  content: String
+  created_at: timestamptz
+  id: bigint
+  slice_id: bigint
+  updated_at: timestamptz
+}
+"""
+order by max() on columns of table "revisions"
+"""
+input revisions_max_order_by {
+  content: order_by
+  created_at: order_by
+  id: order_by
+  slice_id: order_by
+  updated_at: order_by
+}
+"""
+order by min() on columns of table "revisions"
+"""
+input revisions_min_order_by {
+  content: order_by
+  created_at: order_by
+  id: order_by
+  slice_id: order_by
+  updated_at: order_by
+}
+"""
+on_conflict condition type for table "revisions"
+"""
+input revisions_on_conflict {
+  constraint: revisions_constraint!
+  update_columns: [revisions_update_column!]! = []
+  where: revisions_bool_exp
+}
+"""
+Ordering options when selecting data from "revisions".
+"""
+input revisions_order_by {
+  content: order_by
+  created_at: order_by
+  id: order_by
+  slice_id: order_by
+  updated_at: order_by
+}
+"primary key columns input for table: revisions"
+input revisions_pk_columns_input {
+  id: bigint!
+}
+"""
+input type for updating data in table "revisions"
+"""
+input revisions_set_input {
+  content: String
+  created_at: timestamptz
+  id: bigint
+  slice_id: bigint
+  updated_at: timestamptz
+}
+"""
+order by stddev() on columns of table "revisions"
+"""
+input revisions_stddev_order_by {
+  id: order_by
+  slice_id: order_by
+}
+"""
+order by stddev_pop() on columns of table "revisions"
+"""
+input revisions_stddev_pop_order_by {
+  id: order_by
+  slice_id: order_by
+}
+"""
+order by stddev_samp() on columns of table "revisions"
+"""
+input revisions_stddev_samp_order_by {
+  id: order_by
+  slice_id: order_by
+}
+"""
+Streaming cursor of the table "revisions"
+"""
+input revisions_stream_cursor_input {
+  "Stream column input with initial value"
+  initial_value: revisions_stream_cursor_value_input!
+  "cursor ordering"
+  ordering: cursor_ordering
+}
+"Initial value of the column from where the streaming should start"
+input revisions_stream_cursor_value_input {
+  content: String
+  created_at: timestamptz
+  id: bigint
+  slice_id: bigint
+  updated_at: timestamptz
+}
+"""
+order by sum() on columns of table "revisions"
+"""
+input revisions_sum_order_by {
+  id: order_by
+  slice_id: order_by
+}
+input revisions_updates {
+  "increments the numeric columns with given value of the filtered values"
+  _inc: revisions_inc_input
+  "sets the columns of the filtered rows to the given values"
+  _set: revisions_set_input
+  where: revisions_bool_exp!
+}
+"""
+order by var_pop() on columns of table "revisions"
+"""
+input revisions_var_pop_order_by {
+  id: order_by
+  slice_id: order_by
+}
+"""
+order by var_samp() on columns of table "revisions"
+"""
+input revisions_var_samp_order_by {
+  id: order_by
+  slice_id: order_by
+}
+"""
+order by variance() on columns of table "revisions"
+"""
+input revisions_variance_order_by {
+  id: order_by
+  slice_id: order_by
+}
+"""
+Boolean expression to filter rows from the table "slices". All fields are combined with a logical 'AND'.
+"""
+input slices_bool_exp {
+  _and: [slices_bool_exp!]
+  _not: slices_bool_exp
+  _or: [slices_bool_exp!]
+  created_at: timestamptz_comparison_exp
+  id: bigint_comparison_exp
+  revisions: revisions_bool_exp
+  tags: slices_tags_bool_exp
+  trashed_at: timestamptz_comparison_exp
+  user_id: String_comparison_exp
+}
+"""
+input type for incrementing numeric columns in table "slices"
+"""
+input slices_inc_input {
+  id: bigint
+}
+"""
+input type for inserting data into table "slices"
+"""
+input slices_insert_input {
+  created_at: timestamptz
+  id: bigint
+  revisions: revisions_arr_rel_insert_input
+  tags: slices_tags_arr_rel_insert_input
+  trashed_at: timestamptz
+  user_id: String
+}
+"""
+on_conflict condition type for table "slices"
+"""
+input slices_on_conflict {
+  constraint: slices_constraint!
+  update_columns: [slices_update_column!]! = []
+  where: slices_bool_exp
+}
+"""
+Ordering options when selecting data from "slices".
+"""
+input slices_order_by {
+  created_at: order_by
+  id: order_by
+  revisions_aggregate: revisions_aggregate_order_by
+  tags_aggregate: slices_tags_aggregate_order_by
+  trashed_at: order_by
+  user_id: order_by
+}
+"primary key columns input for table: slices"
+input slices_pk_columns_input {
+  id: bigint!
+}
+"""
+input type for updating data in table "slices"
+"""
+input slices_set_input {
+  created_at: timestamptz
+  id: bigint
+  trashed_at: timestamptz
+  user_id: String
+}
+"""
+Streaming cursor of the table "slices"
+"""
+input slices_stream_cursor_input {
+  "Stream column input with initial value"
+  initial_value: slices_stream_cursor_value_input!
+  "cursor ordering"
+  ordering: cursor_ordering
+}
+"Initial value of the column from where the streaming should start"
+input slices_stream_cursor_value_input {
+  created_at: timestamptz
+  id: bigint
+  trashed_at: timestamptz
+  user_id: String
+}
+"""
+order by aggregate values of table "slices_tags"
+"""
+input slices_tags_aggregate_order_by {
+  avg: slices_tags_avg_order_by
+  count: order_by
+  max: slices_tags_max_order_by
+  min: slices_tags_min_order_by
+  stddev: slices_tags_stddev_order_by
+  stddev_pop: slices_tags_stddev_pop_order_by
+  stddev_samp: slices_tags_stddev_samp_order_by
+  sum: slices_tags_sum_order_by
+  var_pop: slices_tags_var_pop_order_by
+  var_samp: slices_tags_var_samp_order_by
+  variance: slices_tags_variance_order_by
+}
+"""
+input type for inserting array relation for remote table "slices_tags"
+"""
+input slices_tags_arr_rel_insert_input {
+  data: [slices_tags_insert_input!]!
+  "upsert condition"
+  on_conflict: slices_tags_on_conflict
+}
+"""
+order by avg() on columns of table "slices_tags"
+"""
+input slices_tags_avg_order_by {
+  slice_id: order_by
+  tag_id: order_by
+}
+"""
+Boolean expression to filter rows from the table "slices_tags". All fields are combined with a logical 'AND'.
+"""
+input slices_tags_bool_exp {
+  _and: [slices_tags_bool_exp!]
+  _not: slices_tags_bool_exp
+  _or: [slices_tags_bool_exp!]
+  slice_id: bigint_comparison_exp
+  tag: tags_bool_exp
+  tag_id: bigint_comparison_exp
+}
+"""
+input type for incrementing numeric columns in table "slices_tags"
+"""
+input slices_tags_inc_input {
+  slice_id: bigint
+  tag_id: bigint
+}
+"""
+input type for inserting data into table "slices_tags"
+"""
+input slices_tags_insert_input {
+  slice_id: bigint
+  tag: tags_obj_rel_insert_input
+  tag_id: bigint
+}
+"""
+order by max() on columns of table "slices_tags"
+"""
+input slices_tags_max_order_by {
+  slice_id: order_by
+  tag_id: order_by
+}
+"""
+order by min() on columns of table "slices_tags"
+"""
+input slices_tags_min_order_by {
+  slice_id: order_by
+  tag_id: order_by
+}
+"""
+on_conflict condition type for table "slices_tags"
+"""
+input slices_tags_on_conflict {
+  constraint: slices_tags_constraint!
+  update_columns: [slices_tags_update_column!]! = []
+  where: slices_tags_bool_exp
+}
+"""
+Ordering options when selecting data from "slices_tags".
+"""
+input slices_tags_order_by {
+  slice_id: order_by
+  tag: tags_order_by
+  tag_id: order_by
+}
+"primary key columns input for table: slices_tags"
+input slices_tags_pk_columns_input {
+  slice_id: bigint!
+  tag_id: bigint!
+}
+"""
+input type for updating data in table "slices_tags"
+"""
+input slices_tags_set_input {
+  slice_id: bigint
+  tag_id: bigint
+}
+"""
+order by stddev() on columns of table "slices_tags"
+"""
+input slices_tags_stddev_order_by {
+  slice_id: order_by
+  tag_id: order_by
+}
+"""
+order by stddev_pop() on columns of table "slices_tags"
+"""
+input slices_tags_stddev_pop_order_by {
+  slice_id: order_by
+  tag_id: order_by
+}
+"""
+order by stddev_samp() on columns of table "slices_tags"
+"""
+input slices_tags_stddev_samp_order_by {
+  slice_id: order_by
+  tag_id: order_by
+}
+"""
+Streaming cursor of the table "slices_tags"
+"""
+input slices_tags_stream_cursor_input {
+  "Stream column input with initial value"
+  initial_value: slices_tags_stream_cursor_value_input!
+  "cursor ordering"
+  ordering: cursor_ordering
+}
+"Initial value of the column from where the streaming should start"
+input slices_tags_stream_cursor_value_input {
+  slice_id: bigint
+  tag_id: bigint
+}
+"""
+order by sum() on columns of table "slices_tags"
+"""
+input slices_tags_sum_order_by {
+  slice_id: order_by
+  tag_id: order_by
+}
+input slices_tags_updates {
+  "increments the numeric columns with given value of the filtered values"
+  _inc: slices_tags_inc_input
+  "sets the columns of the filtered rows to the given values"
+  _set: slices_tags_set_input
+  where: slices_tags_bool_exp!
+}
+"""
+order by var_pop() on columns of table "slices_tags"
+"""
+input slices_tags_var_pop_order_by {
+  slice_id: order_by
+  tag_id: order_by
+}
+"""
+order by var_samp() on columns of table "slices_tags"
+"""
+input slices_tags_var_samp_order_by {
+  slice_id: order_by
+  tag_id: order_by
+}
+"""
+order by variance() on columns of table "slices_tags"
+"""
+input slices_tags_variance_order_by {
+  slice_id: order_by
+  tag_id: order_by
+}
+input slices_updates {
+  "increments the numeric columns with given value of the filtered values"
+  _inc: slices_inc_input
+  "sets the columns of the filtered rows to the given values"
+  _set: slices_set_input
+  where: slices_bool_exp!
+}
+"""
+Boolean expression to filter rows from the table "tags". All fields are combined with a logical 'AND'.
+"""
+input tags_bool_exp {
+  _and: [tags_bool_exp!]
+  _not: tags_bool_exp
+  _or: [tags_bool_exp!]
+  color: colors_bool_exp
+  color_id: bigint_comparison_exp
+  id: bigint_comparison_exp
+  name: String_comparison_exp
+  user_id: String_comparison_exp
+}
+"""
+input type for incrementing numeric columns in table "tags"
+"""
+input tags_inc_input {
+  color_id: bigint
+  id: bigint
+}
+"""
+input type for inserting data into table "tags"
+"""
+input tags_insert_input {
+  color: colors_obj_rel_insert_input
+  color_id: bigint
+  id: bigint
+  name: String
+  user_id: String
+}
+"""
+input type for inserting object relation for remote table "tags"
+"""
+input tags_obj_rel_insert_input {
+  data: tags_insert_input!
+  "upsert condition"
+  on_conflict: tags_on_conflict
+}
+"""
+on_conflict condition type for table "tags"
+"""
+input tags_on_conflict {
+  constraint: tags_constraint!
+  update_columns: [tags_update_column!]! = []
+  where: tags_bool_exp
+}
+"""
+Ordering options when selecting data from "tags".
+"""
+input tags_order_by {
+  color: colors_order_by
+  color_id: order_by
+  id: order_by
+  name: order_by
+  user_id: order_by
+}
+"primary key columns input for table: tags"
+input tags_pk_columns_input {
+  id: bigint!
+}
+"""
+input type for updating data in table "tags"
+"""
+input tags_set_input {
+  color_id: bigint
+  id: bigint
+  name: String
+  user_id: String
+}
+"""
+Streaming cursor of the table "tags"
+"""
+input tags_stream_cursor_input {
+  "Stream column input with initial value"
+  initial_value: tags_stream_cursor_value_input!
+  "cursor ordering"
+  ordering: cursor_ordering
+}
+"Initial value of the column from where the streaming should start"
+input tags_stream_cursor_value_input {
+  color_id: bigint
+  id: bigint
+  name: String
+  user_id: String
+}
+input tags_updates {
+  "increments the numeric columns with given value of the filtered values"
+  _inc: tags_inc_input
+  "sets the columns of the filtered rows to the given values"
+  _set: tags_set_input
+  where: tags_bool_exp!
+}
+"""
+Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'.
+"""
+input timestamptz_comparison_exp {
+  _eq: timestamptz
+  _gt: timestamptz
+  _gte: timestamptz
+  _in: [timestamptz!]
+  _is_null: Boolean
+  _lt: timestamptz
+  _lte: timestamptz
+  _neq: timestamptz
+  _nin: [timestamptz!]
+}
+"""
+Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'.
+"""
+input users_bool_exp {
+  _and: [users_bool_exp!]
+  _not: users_bool_exp
+  _or: [users_bool_exp!]
+  created_at: timestamptz_comparison_exp
+  firebase_id: String_comparison_exp
+  id: String_comparison_exp
+}
+"""
+input type for inserting data into table "users"
+"""
+input users_insert_input {
+  created_at: timestamptz
+  firebase_id: String
+  id: String
+}
+"""
+on_conflict condition type for table "users"
+"""
+input users_on_conflict {
+  constraint: users_constraint!
+  update_columns: [users_update_column!]! = []
+  where: users_bool_exp
+}
+"""
+Ordering options when selecting data from "users".
+"""
+input users_order_by {
+  created_at: order_by
+  firebase_id: order_by
+  id: order_by
+}
+"primary key columns input for table: users"
+input users_pk_columns_input {
+  id: String!
+}
+"""
+input type for updating data in table "users"
+"""
+input users_set_input {
+  created_at: timestamptz
+  firebase_id: String
+  id: String
+}
+"""
+Streaming cursor of the table "users"
+"""
+input users_stream_cursor_input {
+  "Stream column input with initial value"
+  initial_value: users_stream_cursor_value_input!
+  "cursor ordering"
+  ordering: cursor_ordering
+}
+"Initial value of the column from where the streaming should start"
+input users_stream_cursor_value_input {
+  created_at: timestamptz
+  firebase_id: String
+  id: String
+}
+input users_updates {
+  "sets the columns of the filtered rows to the given values"
+  _set: users_set_input
+  where: users_bool_exp!
+}
+"whether this query should be cached (Hasura Cloud only)"
+directive @cached(
+    "measured in seconds"
+    ttl: Int! = 60,
+    "refresh the cache entry"
+    refresh: Boolean! = false
+  ) on QUERY

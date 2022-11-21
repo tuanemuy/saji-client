@@ -1,0 +1,26 @@
+fragment UserData on users {
+  id
+  firebase_id
+  created_at
+}
+
+query GetUser($id: String!) {
+  users_by_pk(id: $id) {
+    ...UserData
+  }
+}
+
+query GetUserByFirebaseId($firebase_id: String!) {
+  users(limit: 1, where: { firebase_id: { _eq: $firebase_id } }) {
+    ...UserData
+  }
+}
+
+mutation UpdateUser($id: String!, $firebase_id: String!) {
+  update_users_by_pk(
+    pk_columns: { id: $id }
+    _set: { firebase_id: $firebase_id }
+  ) {
+    ...UserData
+  }
+}

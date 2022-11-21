@@ -1,0 +1,44 @@
+mutation CreateRevision($slice_id: bigint!, $content: String!) {
+  insert_revisions_one(object: { slice_id: $slice_id, content: $content }) {
+    id
+    created_at
+    updated_at
+    content
+    slice_id
+  }
+}
+
+query GetRevisions($slice_id: bigint!) {
+  revisions(
+    order_by: { created_at: desc }
+    where: { slice_id: { _eq: $slice_id } }
+  ) {
+    id
+    content
+    created_at
+    updated_at
+    slice_id
+  }
+}
+
+mutation UpdateRevision($id: bigint!, $content: String!) {
+  update_revisions_by_pk(pk_columns: { id: $id }, _set: { content: $content }) {
+    id
+    content
+    created_at
+    updated_at
+    slice_id
+  }
+}
+
+mutation DeleteRevisions($min_created_at: timestamptz!) {
+  delete_revisions(where: { created_at: { _lt: $min_created_at } }) {
+    returning {
+      id
+      content
+      created_at
+      updated_at
+      slice_id
+    }
+  }
+}

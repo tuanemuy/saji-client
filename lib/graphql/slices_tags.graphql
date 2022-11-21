@@ -1,0 +1,30 @@
+mutation CreateSlicesTags($slice_id: bigint!, $tag_id: bigint!) {
+  insert_slices_tags_one(object: { tag_id: $tag_id, slice_id: $slice_id }) {
+    slice_id
+    tag_id
+  }
+}
+
+mutation CreateSlicesTagsWithTag(
+  $user_id: String!
+  $slice_id: bigint!
+  $name: String!
+  $color_id: bigint!
+) {
+  insert_slices_tags_one(
+    object: {
+      slice_id: $slice_id
+      tag: { data: { user_id: $user_id, name: $name, color_id: $color_id } }
+    }
+  ) {
+    slice_id
+    tag_id
+  }
+}
+
+mutation DeleteSlicesTags($slice_id: bigint!, $tag_id: bigint!) {
+  delete_slices_tags_by_pk(slice_id: $slice_id, tag_id: $tag_id) {
+    slice_id
+    tag_id
+  }
+}

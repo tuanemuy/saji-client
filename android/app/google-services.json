@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "394236296692",
+    "project_id": "saji-editor",
+    "storage_bucket": "saji-editor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394236296692:android:62f8232960d46ef5facda1",
+        "android_client_info": {
+          "package_name": "com.example.saji_client"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394236296692-rtaetg4qj2qspva0dombrln2bjhi5v4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3a0QuSFjItzSOyB_YzY-I-1L-b07Oryw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394236296692-rtaetg4qj2qspva0dombrln2bjhi5v4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

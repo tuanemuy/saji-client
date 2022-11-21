@@ -1,0 +1,70 @@
+mutation CreateTag($name: String!, $color_id: bigint!, $user_id: String!) {
+  insert_tags_one(
+    object: { name: $name, color_id: $color_id, user_id: $user_id }
+  ) {
+    id
+    name
+    color_id
+    color {
+      id
+      hex
+      user_id
+    }
+    user_id
+  }
+
+  update_colors_by_pk(
+    pk_columns: { id: $color_id }
+    _set: { used_at: "now()" }
+  ) {
+    id
+    hex
+    used_at
+    user_id
+  }
+}
+
+query GetTags($user_id: String!) {
+  tags(order_by: { name: asc }, where: { user_id: { _eq: $user_id } }) {
+    id
+    name
+    color_id
+    color {
+      id
+      hex
+      user_id
+    }
+    user_id
+  }
+}
+
+mutation UpdateTag($id: bigint!, $name: String!, $color_id: bigint!) {
+  update_tags_by_pk(
+    pk_columns: { id: $id }
+    _set: { name: $name, color_id: $color_id }
+  ) {
+    id
+    name
+    color_id
+    color {
+      id
+      hex
+      user_id
+    }
+    user_id
+  }
+}
+
+mutation DeleteTag($id: bigint!) {
+  delete_tags_by_pk(id: $id) {
+    id
+    name
+    color_id
+    color {
+      id
+      hex
+      user_id
+    }
+    user_id
+  }
+}
