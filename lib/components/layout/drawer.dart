@@ -10,32 +10,29 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        child: Column(children: [
-      ListView(
-          padding: const EdgeInsets.symmetric(vertical: 15),
-          shrinkWrap: true,
-          children: const <Widget>[
-            ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Tags'),
-            ),
-            ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Colors'),
-            )
-          ]),
+        child: SafeArea(
+            child: Column(children: [
+      ListView(shrinkWrap: true, children: const <Widget>[
+        ListTile(
+          leading: Icon(Icons.tag),
+          title: Text('Tags'),
+        ),
+        ListTile(
+          leading: Icon(Icons.color_lens),
+          title: Text('Colors'),
+        )
+      ]),
       const Spacer(),
       ListView(
-          padding: const EdgeInsets.symmetric(vertical: 15),
           shrinkWrap: true,
           children: [
             ListTile(
-                leading: const Icon(Icons.message),
+                leading: const Icon(Icons.logout),
                 title: const Text('Sign out'),
                 onTap: () {
                   authUseCase.signOut();
                 })
           ])
-    ]));
+    ])));
   }
 }

@@ -312,10 +312,6 @@ const documentNodeMutationCreateSlice = DocumentNode(definitions: [
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'limit'),
-                value: IntValueNode(value: '1'),
-              ),
-              ArgumentNode(
                 name: NameNode(value: 'order_by'),
                 value: ObjectValueNode(fields: [
                   ObjectFieldNode(
@@ -323,7 +319,7 @@ const documentNodeMutationCreateSlice = DocumentNode(definitions: [
                     value: EnumValueNode(name: NameNode(value: 'desc')),
                   )
                 ]),
-              ),
+              )
             ],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
@@ -1578,6 +1574,2120 @@ class _CopyWithStubImpl$Mutation$CreateSlice$insert_slices_one$tags$tag$color<
   call({
     int? id,
     String? hex,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Variables$Query$GetSlice {
+  factory Variables$Query$GetSlice({required int id}) =>
+      Variables$Query$GetSlice._({
+        r'id': id,
+      });
+
+  Variables$Query$GetSlice._(this._$data);
+
+  factory Variables$Query$GetSlice.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$id = data['id'];
+    result$data['id'] = (l$id as int);
+    return Variables$Query$GetSlice._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int get id => (_$data['id'] as int);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$id = id;
+    result$data['id'] = l$id;
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$GetSlice<Variables$Query$GetSlice> get copyWith =>
+      CopyWith$Variables$Query$GetSlice(
+        this,
+        (i) => i,
+      );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$GetSlice) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    return Object.hashAll([l$id]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$GetSlice<TRes> {
+  factory CopyWith$Variables$Query$GetSlice(
+    Variables$Query$GetSlice instance,
+    TRes Function(Variables$Query$GetSlice) then,
+  ) = _CopyWithImpl$Variables$Query$GetSlice;
+
+  factory CopyWith$Variables$Query$GetSlice.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GetSlice;
+
+  TRes call({int? id});
+}
+
+class _CopyWithImpl$Variables$Query$GetSlice<TRes>
+    implements CopyWith$Variables$Query$GetSlice<TRes> {
+  _CopyWithImpl$Variables$Query$GetSlice(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$GetSlice _instance;
+
+  final TRes Function(Variables$Query$GetSlice) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? id = _undefined}) => _then(Variables$Query$GetSlice._({
+        ..._instance._$data,
+        if (id != _undefined && id != null) 'id': (id as int),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$GetSlice<TRes>
+    implements CopyWith$Variables$Query$GetSlice<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetSlice(this._res);
+
+  TRes _res;
+
+  call({int? id}) => _res;
+}
+
+class Query$GetSlice {
+  Query$GetSlice({
+    this.slices_by_pk,
+    required this.$__typename,
+  });
+
+  factory Query$GetSlice.fromJson(Map<String, dynamic> json) {
+    final l$slices_by_pk = json['slices_by_pk'];
+    final l$$__typename = json['__typename'];
+    return Query$GetSlice(
+      slices_by_pk: l$slices_by_pk == null
+          ? null
+          : Query$GetSlice$slices_by_pk.fromJson(
+              (l$slices_by_pk as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Query$GetSlice$slices_by_pk? slices_by_pk;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$slices_by_pk = slices_by_pk;
+    _resultData['slices_by_pk'] = l$slices_by_pk?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$slices_by_pk = slices_by_pk;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$slices_by_pk,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetSlice) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$slices_by_pk = slices_by_pk;
+    final lOther$slices_by_pk = other.slices_by_pk;
+    if (l$slices_by_pk != lOther$slices_by_pk) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetSlice on Query$GetSlice {
+  CopyWith$Query$GetSlice<Query$GetSlice> get copyWith =>
+      CopyWith$Query$GetSlice(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$GetSlice<TRes> {
+  factory CopyWith$Query$GetSlice(
+    Query$GetSlice instance,
+    TRes Function(Query$GetSlice) then,
+  ) = _CopyWithImpl$Query$GetSlice;
+
+  factory CopyWith$Query$GetSlice.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetSlice;
+
+  TRes call({
+    Query$GetSlice$slices_by_pk? slices_by_pk,
+    String? $__typename,
+  });
+  CopyWith$Query$GetSlice$slices_by_pk<TRes> get slices_by_pk;
+}
+
+class _CopyWithImpl$Query$GetSlice<TRes>
+    implements CopyWith$Query$GetSlice<TRes> {
+  _CopyWithImpl$Query$GetSlice(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetSlice _instance;
+
+  final TRes Function(Query$GetSlice) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? slices_by_pk = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetSlice(
+        slices_by_pk: slices_by_pk == _undefined
+            ? _instance.slices_by_pk
+            : (slices_by_pk as Query$GetSlice$slices_by_pk?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$GetSlice$slices_by_pk<TRes> get slices_by_pk {
+    final local$slices_by_pk = _instance.slices_by_pk;
+    return local$slices_by_pk == null
+        ? CopyWith$Query$GetSlice$slices_by_pk.stub(_then(_instance))
+        : CopyWith$Query$GetSlice$slices_by_pk(
+            local$slices_by_pk, (e) => call(slices_by_pk: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$GetSlice<TRes>
+    implements CopyWith$Query$GetSlice<TRes> {
+  _CopyWithStubImpl$Query$GetSlice(this._res);
+
+  TRes _res;
+
+  call({
+    Query$GetSlice$slices_by_pk? slices_by_pk,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$GetSlice$slices_by_pk<TRes> get slices_by_pk =>
+      CopyWith$Query$GetSlice$slices_by_pk.stub(_res);
+}
+
+const documentNodeQueryGetSlice = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GetSlice'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'bigint'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'slices_by_pk'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'id'),
+            value: VariableNode(name: NameNode(value: 'id')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'user_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'revisions'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'order_by'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: 'created_at'),
+                    value: EnumValueNode(name: NameNode(value: 'desc')),
+                  )
+                ]),
+              )
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'content'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'created_at'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'updated_at'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'tags'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'order_by'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: 'tag_id'),
+                    value: EnumValueNode(name: NameNode(value: 'asc')),
+                  )
+                ]),
+              )
+            ],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'tag'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'name'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'color'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'hex'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Query$GetSlice _parserFn$Query$GetSlice(Map<String, dynamic> data) =>
+    Query$GetSlice.fromJson(data);
+
+class Options$Query$GetSlice extends graphql.QueryOptions<Query$GetSlice> {
+  Options$Query$GetSlice({
+    String? operationName,
+    required Variables$Query$GetSlice variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          pollInterval: pollInterval,
+          context: context,
+          document: documentNodeQueryGetSlice,
+          parserFn: _parserFn$Query$GetSlice,
+        );
+}
+
+class WatchOptions$Query$GetSlice
+    extends graphql.WatchQueryOptions<Query$GetSlice> {
+  WatchOptions$Query$GetSlice({
+    String? operationName,
+    required Variables$Query$GetSlice variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          document: documentNodeQueryGetSlice,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GetSlice,
+        );
+}
+
+class FetchMoreOptions$Query$GetSlice extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GetSlice({
+    required graphql.UpdateQuery updateQuery,
+    required Variables$Query$GetSlice variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables.toJson(),
+          document: documentNodeQueryGetSlice,
+        );
+}
+
+extension ClientExtension$Query$GetSlice on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GetSlice>> query$GetSlice(
+          Options$Query$GetSlice options) async =>
+      await this.query(options);
+  graphql.ObservableQuery<Query$GetSlice> watchQuery$GetSlice(
+          WatchOptions$Query$GetSlice options) =>
+      this.watchQuery(options);
+  void writeQuery$GetSlice({
+    required Query$GetSlice data,
+    required Variables$Query$GetSlice variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation: graphql.Operation(document: documentNodeQueryGetSlice),
+          variables: variables.toJson(),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GetSlice? readQuery$GetSlice({
+    required Variables$Query$GetSlice variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(document: documentNodeQueryGetSlice),
+        variables: variables.toJson(),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Query$GetSlice.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$GetSlice> useQuery$GetSlice(
+        Options$Query$GetSlice options) =>
+    graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$GetSlice> useWatchQuery$GetSlice(
+        WatchOptions$Query$GetSlice options) =>
+    graphql_flutter.useWatchQuery(options);
+
+class Query$GetSlice$Widget extends graphql_flutter.Query<Query$GetSlice> {
+  Query$GetSlice$Widget({
+    widgets.Key? key,
+    required Options$Query$GetSlice options,
+    required graphql_flutter.QueryBuilder<Query$GetSlice> builder,
+  }) : super(
+          key: key,
+          options: options,
+          builder: builder,
+        );
+}
+
+class Query$GetSlice$slices_by_pk {
+  Query$GetSlice$slices_by_pk({
+    required this.id,
+    required this.created_at,
+    required this.user_id,
+    required this.revisions,
+    required this.tags,
+    required this.$__typename,
+  });
+
+  factory Query$GetSlice$slices_by_pk.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$created_at = json['created_at'];
+    final l$user_id = json['user_id'];
+    final l$revisions = json['revisions'];
+    final l$tags = json['tags'];
+    final l$$__typename = json['__typename'];
+    return Query$GetSlice$slices_by_pk(
+      id: (l$id as int),
+      created_at: DateTime.parse((l$created_at as String)),
+      user_id: (l$user_id as String),
+      revisions: (l$revisions as List<dynamic>)
+          .map((e) => Query$GetSlice$slices_by_pk$revisions.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList(),
+      tags: (l$tags as List<dynamic>)
+          .map((e) => Query$GetSlice$slices_by_pk$tags.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final DateTime created_at;
+
+  final String user_id;
+
+  final List<Query$GetSlice$slices_by_pk$revisions> revisions;
+
+  final List<Query$GetSlice$slices_by_pk$tags> tags;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$created_at = created_at;
+    _resultData['created_at'] = l$created_at.toIso8601String();
+    final l$user_id = user_id;
+    _resultData['user_id'] = l$user_id;
+    final l$revisions = revisions;
+    _resultData['revisions'] = l$revisions.map((e) => e.toJson()).toList();
+    final l$tags = tags;
+    _resultData['tags'] = l$tags.map((e) => e.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$created_at = created_at;
+    final l$user_id = user_id;
+    final l$revisions = revisions;
+    final l$tags = tags;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$created_at,
+      l$user_id,
+      Object.hashAll(l$revisions.map((v) => v)),
+      Object.hashAll(l$tags.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetSlice$slices_by_pk) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
+    final l$revisions = revisions;
+    final lOther$revisions = other.revisions;
+    if (l$revisions.length != lOther$revisions.length) {
+      return false;
+    }
+    for (int i = 0; i < l$revisions.length; i++) {
+      final l$revisions$entry = l$revisions[i];
+      final lOther$revisions$entry = lOther$revisions[i];
+      if (l$revisions$entry != lOther$revisions$entry) {
+        return false;
+      }
+    }
+    final l$tags = tags;
+    final lOther$tags = other.tags;
+    if (l$tags.length != lOther$tags.length) {
+      return false;
+    }
+    for (int i = 0; i < l$tags.length; i++) {
+      final l$tags$entry = l$tags[i];
+      final lOther$tags$entry = lOther$tags[i];
+      if (l$tags$entry != lOther$tags$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetSlice$slices_by_pk
+    on Query$GetSlice$slices_by_pk {
+  CopyWith$Query$GetSlice$slices_by_pk<Query$GetSlice$slices_by_pk>
+      get copyWith => CopyWith$Query$GetSlice$slices_by_pk(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetSlice$slices_by_pk<TRes> {
+  factory CopyWith$Query$GetSlice$slices_by_pk(
+    Query$GetSlice$slices_by_pk instance,
+    TRes Function(Query$GetSlice$slices_by_pk) then,
+  ) = _CopyWithImpl$Query$GetSlice$slices_by_pk;
+
+  factory CopyWith$Query$GetSlice$slices_by_pk.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetSlice$slices_by_pk;
+
+  TRes call({
+    int? id,
+    DateTime? created_at,
+    String? user_id,
+    List<Query$GetSlice$slices_by_pk$revisions>? revisions,
+    List<Query$GetSlice$slices_by_pk$tags>? tags,
+    String? $__typename,
+  });
+  TRes revisions(
+      Iterable<Query$GetSlice$slices_by_pk$revisions> Function(
+              Iterable<
+                  CopyWith$Query$GetSlice$slices_by_pk$revisions<
+                      Query$GetSlice$slices_by_pk$revisions>>)
+          _fn);
+  TRes tags(
+      Iterable<Query$GetSlice$slices_by_pk$tags> Function(
+              Iterable<
+                  CopyWith$Query$GetSlice$slices_by_pk$tags<
+                      Query$GetSlice$slices_by_pk$tags>>)
+          _fn);
+}
+
+class _CopyWithImpl$Query$GetSlice$slices_by_pk<TRes>
+    implements CopyWith$Query$GetSlice$slices_by_pk<TRes> {
+  _CopyWithImpl$Query$GetSlice$slices_by_pk(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetSlice$slices_by_pk _instance;
+
+  final TRes Function(Query$GetSlice$slices_by_pk) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? created_at = _undefined,
+    Object? user_id = _undefined,
+    Object? revisions = _undefined,
+    Object? tags = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetSlice$slices_by_pk(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        created_at: created_at == _undefined || created_at == null
+            ? _instance.created_at
+            : (created_at as DateTime),
+        user_id: user_id == _undefined || user_id == null
+            ? _instance.user_id
+            : (user_id as String),
+        revisions: revisions == _undefined || revisions == null
+            ? _instance.revisions
+            : (revisions as List<Query$GetSlice$slices_by_pk$revisions>),
+        tags: tags == _undefined || tags == null
+            ? _instance.tags
+            : (tags as List<Query$GetSlice$slices_by_pk$tags>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes revisions(
+          Iterable<Query$GetSlice$slices_by_pk$revisions> Function(
+                  Iterable<
+                      CopyWith$Query$GetSlice$slices_by_pk$revisions<
+                          Query$GetSlice$slices_by_pk$revisions>>)
+              _fn) =>
+      call(
+          revisions: _fn(_instance.revisions
+              .map((e) => CopyWith$Query$GetSlice$slices_by_pk$revisions(
+                    e,
+                    (i) => i,
+                  ))).toList());
+  TRes tags(
+          Iterable<Query$GetSlice$slices_by_pk$tags> Function(
+                  Iterable<
+                      CopyWith$Query$GetSlice$slices_by_pk$tags<
+                          Query$GetSlice$slices_by_pk$tags>>)
+              _fn) =>
+      call(
+          tags: _fn(_instance.tags
+              .map((e) => CopyWith$Query$GetSlice$slices_by_pk$tags(
+                    e,
+                    (i) => i,
+                  ))).toList());
+}
+
+class _CopyWithStubImpl$Query$GetSlice$slices_by_pk<TRes>
+    implements CopyWith$Query$GetSlice$slices_by_pk<TRes> {
+  _CopyWithStubImpl$Query$GetSlice$slices_by_pk(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    DateTime? created_at,
+    String? user_id,
+    List<Query$GetSlice$slices_by_pk$revisions>? revisions,
+    List<Query$GetSlice$slices_by_pk$tags>? tags,
+    String? $__typename,
+  }) =>
+      _res;
+  revisions(_fn) => _res;
+  tags(_fn) => _res;
+}
+
+class Query$GetSlice$slices_by_pk$revisions {
+  Query$GetSlice$slices_by_pk$revisions({
+    required this.id,
+    required this.content,
+    required this.created_at,
+    required this.updated_at,
+    required this.$__typename,
+  });
+
+  factory Query$GetSlice$slices_by_pk$revisions.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$content = json['content'];
+    final l$created_at = json['created_at'];
+    final l$updated_at = json['updated_at'];
+    final l$$__typename = json['__typename'];
+    return Query$GetSlice$slices_by_pk$revisions(
+      id: (l$id as int),
+      content: (l$content as String),
+      created_at: DateTime.parse((l$created_at as String)),
+      updated_at: DateTime.parse((l$updated_at as String)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String content;
+
+  final DateTime created_at;
+
+  final DateTime updated_at;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$content = content;
+    _resultData['content'] = l$content;
+    final l$created_at = created_at;
+    _resultData['created_at'] = l$created_at.toIso8601String();
+    final l$updated_at = updated_at;
+    _resultData['updated_at'] = l$updated_at.toIso8601String();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$content = content;
+    final l$created_at = created_at;
+    final l$updated_at = updated_at;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$content,
+      l$created_at,
+      l$updated_at,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetSlice$slices_by_pk$revisions) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$content = content;
+    final lOther$content = other.content;
+    if (l$content != lOther$content) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetSlice$slices_by_pk$revisions
+    on Query$GetSlice$slices_by_pk$revisions {
+  CopyWith$Query$GetSlice$slices_by_pk$revisions<
+          Query$GetSlice$slices_by_pk$revisions>
+      get copyWith => CopyWith$Query$GetSlice$slices_by_pk$revisions(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetSlice$slices_by_pk$revisions<TRes> {
+  factory CopyWith$Query$GetSlice$slices_by_pk$revisions(
+    Query$GetSlice$slices_by_pk$revisions instance,
+    TRes Function(Query$GetSlice$slices_by_pk$revisions) then,
+  ) = _CopyWithImpl$Query$GetSlice$slices_by_pk$revisions;
+
+  factory CopyWith$Query$GetSlice$slices_by_pk$revisions.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetSlice$slices_by_pk$revisions;
+
+  TRes call({
+    int? id,
+    String? content,
+    DateTime? created_at,
+    DateTime? updated_at,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$GetSlice$slices_by_pk$revisions<TRes>
+    implements CopyWith$Query$GetSlice$slices_by_pk$revisions<TRes> {
+  _CopyWithImpl$Query$GetSlice$slices_by_pk$revisions(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetSlice$slices_by_pk$revisions _instance;
+
+  final TRes Function(Query$GetSlice$slices_by_pk$revisions) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? content = _undefined,
+    Object? created_at = _undefined,
+    Object? updated_at = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetSlice$slices_by_pk$revisions(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        content: content == _undefined || content == null
+            ? _instance.content
+            : (content as String),
+        created_at: created_at == _undefined || created_at == null
+            ? _instance.created_at
+            : (created_at as DateTime),
+        updated_at: updated_at == _undefined || updated_at == null
+            ? _instance.updated_at
+            : (updated_at as DateTime),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$GetSlice$slices_by_pk$revisions<TRes>
+    implements CopyWith$Query$GetSlice$slices_by_pk$revisions<TRes> {
+  _CopyWithStubImpl$Query$GetSlice$slices_by_pk$revisions(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? content,
+    DateTime? created_at,
+    DateTime? updated_at,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Query$GetSlice$slices_by_pk$tags {
+  Query$GetSlice$slices_by_pk$tags({
+    required this.tag,
+    required this.$__typename,
+  });
+
+  factory Query$GetSlice$slices_by_pk$tags.fromJson(Map<String, dynamic> json) {
+    final l$tag = json['tag'];
+    final l$$__typename = json['__typename'];
+    return Query$GetSlice$slices_by_pk$tags(
+      tag: Query$GetSlice$slices_by_pk$tags$tag.fromJson(
+          (l$tag as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Query$GetSlice$slices_by_pk$tags$tag tag;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$tag = tag;
+    _resultData['tag'] = l$tag.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$tag = tag;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$tag,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetSlice$slices_by_pk$tags) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$tag = tag;
+    final lOther$tag = other.tag;
+    if (l$tag != lOther$tag) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetSlice$slices_by_pk$tags
+    on Query$GetSlice$slices_by_pk$tags {
+  CopyWith$Query$GetSlice$slices_by_pk$tags<Query$GetSlice$slices_by_pk$tags>
+      get copyWith => CopyWith$Query$GetSlice$slices_by_pk$tags(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetSlice$slices_by_pk$tags<TRes> {
+  factory CopyWith$Query$GetSlice$slices_by_pk$tags(
+    Query$GetSlice$slices_by_pk$tags instance,
+    TRes Function(Query$GetSlice$slices_by_pk$tags) then,
+  ) = _CopyWithImpl$Query$GetSlice$slices_by_pk$tags;
+
+  factory CopyWith$Query$GetSlice$slices_by_pk$tags.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetSlice$slices_by_pk$tags;
+
+  TRes call({
+    Query$GetSlice$slices_by_pk$tags$tag? tag,
+    String? $__typename,
+  });
+  CopyWith$Query$GetSlice$slices_by_pk$tags$tag<TRes> get tag;
+}
+
+class _CopyWithImpl$Query$GetSlice$slices_by_pk$tags<TRes>
+    implements CopyWith$Query$GetSlice$slices_by_pk$tags<TRes> {
+  _CopyWithImpl$Query$GetSlice$slices_by_pk$tags(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetSlice$slices_by_pk$tags _instance;
+
+  final TRes Function(Query$GetSlice$slices_by_pk$tags) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? tag = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetSlice$slices_by_pk$tags(
+        tag: tag == _undefined || tag == null
+            ? _instance.tag
+            : (tag as Query$GetSlice$slices_by_pk$tags$tag),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$GetSlice$slices_by_pk$tags$tag<TRes> get tag {
+    final local$tag = _instance.tag;
+    return CopyWith$Query$GetSlice$slices_by_pk$tags$tag(
+        local$tag, (e) => call(tag: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$GetSlice$slices_by_pk$tags<TRes>
+    implements CopyWith$Query$GetSlice$slices_by_pk$tags<TRes> {
+  _CopyWithStubImpl$Query$GetSlice$slices_by_pk$tags(this._res);
+
+  TRes _res;
+
+  call({
+    Query$GetSlice$slices_by_pk$tags$tag? tag,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$GetSlice$slices_by_pk$tags$tag<TRes> get tag =>
+      CopyWith$Query$GetSlice$slices_by_pk$tags$tag.stub(_res);
+}
+
+class Query$GetSlice$slices_by_pk$tags$tag {
+  Query$GetSlice$slices_by_pk$tags$tag({
+    required this.id,
+    required this.name,
+    required this.color,
+    required this.$__typename,
+  });
+
+  factory Query$GetSlice$slices_by_pk$tags$tag.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$color = json['color'];
+    final l$$__typename = json['__typename'];
+    return Query$GetSlice$slices_by_pk$tags$tag(
+      id: (l$id as int),
+      name: (l$name as String),
+      color: Query$GetSlice$slices_by_pk$tags$tag$color.fromJson(
+          (l$color as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Query$GetSlice$slices_by_pk$tags$tag$color color;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$color = color;
+    _resultData['color'] = l$color.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$color = color;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$color,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetSlice$slices_by_pk$tags$tag) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$color = color;
+    final lOther$color = other.color;
+    if (l$color != lOther$color) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetSlice$slices_by_pk$tags$tag
+    on Query$GetSlice$slices_by_pk$tags$tag {
+  CopyWith$Query$GetSlice$slices_by_pk$tags$tag<
+          Query$GetSlice$slices_by_pk$tags$tag>
+      get copyWith => CopyWith$Query$GetSlice$slices_by_pk$tags$tag(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetSlice$slices_by_pk$tags$tag<TRes> {
+  factory CopyWith$Query$GetSlice$slices_by_pk$tags$tag(
+    Query$GetSlice$slices_by_pk$tags$tag instance,
+    TRes Function(Query$GetSlice$slices_by_pk$tags$tag) then,
+  ) = _CopyWithImpl$Query$GetSlice$slices_by_pk$tags$tag;
+
+  factory CopyWith$Query$GetSlice$slices_by_pk$tags$tag.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetSlice$slices_by_pk$tags$tag;
+
+  TRes call({
+    int? id,
+    String? name,
+    Query$GetSlice$slices_by_pk$tags$tag$color? color,
+    String? $__typename,
+  });
+  CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color<TRes> get color;
+}
+
+class _CopyWithImpl$Query$GetSlice$slices_by_pk$tags$tag<TRes>
+    implements CopyWith$Query$GetSlice$slices_by_pk$tags$tag<TRes> {
+  _CopyWithImpl$Query$GetSlice$slices_by_pk$tags$tag(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetSlice$slices_by_pk$tags$tag _instance;
+
+  final TRes Function(Query$GetSlice$slices_by_pk$tags$tag) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? color = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetSlice$slices_by_pk$tags$tag(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        color: color == _undefined || color == null
+            ? _instance.color
+            : (color as Query$GetSlice$slices_by_pk$tags$tag$color),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color<TRes> get color {
+    final local$color = _instance.color;
+    return CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color(
+        local$color, (e) => call(color: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$GetSlice$slices_by_pk$tags$tag<TRes>
+    implements CopyWith$Query$GetSlice$slices_by_pk$tags$tag<TRes> {
+  _CopyWithStubImpl$Query$GetSlice$slices_by_pk$tags$tag(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Query$GetSlice$slices_by_pk$tags$tag$color? color,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color<TRes> get color =>
+      CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color.stub(_res);
+}
+
+class Query$GetSlice$slices_by_pk$tags$tag$color {
+  Query$GetSlice$slices_by_pk$tags$tag$color({
+    required this.id,
+    required this.hex,
+    required this.$__typename,
+  });
+
+  factory Query$GetSlice$slices_by_pk$tags$tag$color.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$hex = json['hex'];
+    final l$$__typename = json['__typename'];
+    return Query$GetSlice$slices_by_pk$tags$tag$color(
+      id: (l$id as int),
+      hex: (l$hex as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String hex;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$hex = hex;
+    _resultData['hex'] = l$hex;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$hex = hex;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$hex,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetSlice$slices_by_pk$tags$tag$color) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$hex = hex;
+    final lOther$hex = other.hex;
+    if (l$hex != lOther$hex) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetSlice$slices_by_pk$tags$tag$color
+    on Query$GetSlice$slices_by_pk$tags$tag$color {
+  CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color<
+          Query$GetSlice$slices_by_pk$tags$tag$color>
+      get copyWith => CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color<TRes> {
+  factory CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color(
+    Query$GetSlice$slices_by_pk$tags$tag$color instance,
+    TRes Function(Query$GetSlice$slices_by_pk$tags$tag$color) then,
+  ) = _CopyWithImpl$Query$GetSlice$slices_by_pk$tags$tag$color;
+
+  factory CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetSlice$slices_by_pk$tags$tag$color;
+
+  TRes call({
+    int? id,
+    String? hex,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$GetSlice$slices_by_pk$tags$tag$color<TRes>
+    implements CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color<TRes> {
+  _CopyWithImpl$Query$GetSlice$slices_by_pk$tags$tag$color(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetSlice$slices_by_pk$tags$tag$color _instance;
+
+  final TRes Function(Query$GetSlice$slices_by_pk$tags$tag$color) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? hex = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetSlice$slices_by_pk$tags$tag$color(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        hex: hex == _undefined || hex == null ? _instance.hex : (hex as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$GetSlice$slices_by_pk$tags$tag$color<TRes>
+    implements CopyWith$Query$GetSlice$slices_by_pk$tags$tag$color<TRes> {
+  _CopyWithStubImpl$Query$GetSlice$slices_by_pk$tags$tag$color(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? hex,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Variables$Query$GetSliceIds {
+  factory Variables$Query$GetSliceIds({
+    int? limit,
+    int? offset,
+    required String user_id,
+  }) =>
+      Variables$Query$GetSliceIds._({
+        if (limit != null) r'limit': limit,
+        if (offset != null) r'offset': offset,
+        r'user_id': user_id,
+      });
+
+  Variables$Query$GetSliceIds._(this._$data);
+
+  factory Variables$Query$GetSliceIds.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('limit')) {
+      final l$limit = data['limit'];
+      result$data['limit'] = (l$limit as int?);
+    }
+    if (data.containsKey('offset')) {
+      final l$offset = data['offset'];
+      result$data['offset'] = (l$offset as int?);
+    }
+    final l$user_id = data['user_id'];
+    result$data['user_id'] = (l$user_id as String);
+    return Variables$Query$GetSliceIds._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get limit => (_$data['limit'] as int?);
+  int? get offset => (_$data['offset'] as int?);
+  String get user_id => (_$data['user_id'] as String);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('limit')) {
+      final l$limit = limit;
+      result$data['limit'] = l$limit;
+    }
+    if (_$data.containsKey('offset')) {
+      final l$offset = offset;
+      result$data['offset'] = l$offset;
+    }
+    final l$user_id = user_id;
+    result$data['user_id'] = l$user_id;
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$GetSliceIds<Variables$Query$GetSliceIds>
+      get copyWith => CopyWith$Variables$Query$GetSliceIds(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$GetSliceIds) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (_$data.containsKey('limit') != other._$data.containsKey('limit')) {
+      return false;
+    }
+    if (l$limit != lOther$limit) {
+      return false;
+    }
+    final l$offset = offset;
+    final lOther$offset = other.offset;
+    if (_$data.containsKey('offset') != other._$data.containsKey('offset')) {
+      return false;
+    }
+    if (l$offset != lOther$offset) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$limit = limit;
+    final l$offset = offset;
+    final l$user_id = user_id;
+    return Object.hashAll([
+      _$data.containsKey('limit') ? l$limit : const {},
+      _$data.containsKey('offset') ? l$offset : const {},
+      l$user_id,
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$GetSliceIds<TRes> {
+  factory CopyWith$Variables$Query$GetSliceIds(
+    Variables$Query$GetSliceIds instance,
+    TRes Function(Variables$Query$GetSliceIds) then,
+  ) = _CopyWithImpl$Variables$Query$GetSliceIds;
+
+  factory CopyWith$Variables$Query$GetSliceIds.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GetSliceIds;
+
+  TRes call({
+    int? limit,
+    int? offset,
+    String? user_id,
+  });
+}
+
+class _CopyWithImpl$Variables$Query$GetSliceIds<TRes>
+    implements CopyWith$Variables$Query$GetSliceIds<TRes> {
+  _CopyWithImpl$Variables$Query$GetSliceIds(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$GetSliceIds _instance;
+
+  final TRes Function(Variables$Query$GetSliceIds) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? limit = _undefined,
+    Object? offset = _undefined,
+    Object? user_id = _undefined,
+  }) =>
+      _then(Variables$Query$GetSliceIds._({
+        ..._instance._$data,
+        if (limit != _undefined) 'limit': (limit as int?),
+        if (offset != _undefined) 'offset': (offset as int?),
+        if (user_id != _undefined && user_id != null)
+          'user_id': (user_id as String),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$GetSliceIds<TRes>
+    implements CopyWith$Variables$Query$GetSliceIds<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetSliceIds(this._res);
+
+  TRes _res;
+
+  call({
+    int? limit,
+    int? offset,
+    String? user_id,
+  }) =>
+      _res;
+}
+
+class Query$GetSliceIds {
+  Query$GetSliceIds({
+    required this.slices,
+    required this.$__typename,
+  });
+
+  factory Query$GetSliceIds.fromJson(Map<String, dynamic> json) {
+    final l$slices = json['slices'];
+    final l$$__typename = json['__typename'];
+    return Query$GetSliceIds(
+      slices: (l$slices as List<dynamic>)
+          .map((e) =>
+              Query$GetSliceIds$slices.fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Query$GetSliceIds$slices> slices;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$slices = slices;
+    _resultData['slices'] = l$slices.map((e) => e.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$slices = slices;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$slices.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetSliceIds) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$slices = slices;
+    final lOther$slices = other.slices;
+    if (l$slices.length != lOther$slices.length) {
+      return false;
+    }
+    for (int i = 0; i < l$slices.length; i++) {
+      final l$slices$entry = l$slices[i];
+      final lOther$slices$entry = lOther$slices[i];
+      if (l$slices$entry != lOther$slices$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetSliceIds on Query$GetSliceIds {
+  CopyWith$Query$GetSliceIds<Query$GetSliceIds> get copyWith =>
+      CopyWith$Query$GetSliceIds(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$GetSliceIds<TRes> {
+  factory CopyWith$Query$GetSliceIds(
+    Query$GetSliceIds instance,
+    TRes Function(Query$GetSliceIds) then,
+  ) = _CopyWithImpl$Query$GetSliceIds;
+
+  factory CopyWith$Query$GetSliceIds.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetSliceIds;
+
+  TRes call({
+    List<Query$GetSliceIds$slices>? slices,
+    String? $__typename,
+  });
+  TRes slices(
+      Iterable<Query$GetSliceIds$slices> Function(
+              Iterable<
+                  CopyWith$Query$GetSliceIds$slices<Query$GetSliceIds$slices>>)
+          _fn);
+}
+
+class _CopyWithImpl$Query$GetSliceIds<TRes>
+    implements CopyWith$Query$GetSliceIds<TRes> {
+  _CopyWithImpl$Query$GetSliceIds(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetSliceIds _instance;
+
+  final TRes Function(Query$GetSliceIds) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? slices = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetSliceIds(
+        slices: slices == _undefined || slices == null
+            ? _instance.slices
+            : (slices as List<Query$GetSliceIds$slices>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes slices(
+          Iterable<Query$GetSliceIds$slices> Function(
+                  Iterable<
+                      CopyWith$Query$GetSliceIds$slices<
+                          Query$GetSliceIds$slices>>)
+              _fn) =>
+      call(
+          slices:
+              _fn(_instance.slices.map((e) => CopyWith$Query$GetSliceIds$slices(
+                    e,
+                    (i) => i,
+                  ))).toList());
+}
+
+class _CopyWithStubImpl$Query$GetSliceIds<TRes>
+    implements CopyWith$Query$GetSliceIds<TRes> {
+  _CopyWithStubImpl$Query$GetSliceIds(this._res);
+
+  TRes _res;
+
+  call({
+    List<Query$GetSliceIds$slices>? slices,
+    String? $__typename,
+  }) =>
+      _res;
+  slices(_fn) => _res;
+}
+
+const documentNodeQueryGetSliceIds = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GetSliceIds'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'limit')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: IntValueNode(value: '30')),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'offset')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: IntValueNode(value: '0')),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'user_id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'slices'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'limit'),
+            value: VariableNode(name: NameNode(value: 'limit')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'offset'),
+            value: VariableNode(name: NameNode(value: 'offset')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'order_by'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'created_at'),
+                value: EnumValueNode(name: NameNode(value: 'desc')),
+              )
+            ]),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: '_and'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: 'user_id'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: '_eq'),
+                        value: VariableNode(name: NameNode(value: 'user_id')),
+                      )
+                    ]),
+                  )
+                ]),
+              )
+            ]),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Query$GetSliceIds _parserFn$Query$GetSliceIds(Map<String, dynamic> data) =>
+    Query$GetSliceIds.fromJson(data);
+
+class Options$Query$GetSliceIds
+    extends graphql.QueryOptions<Query$GetSliceIds> {
+  Options$Query$GetSliceIds({
+    String? operationName,
+    required Variables$Query$GetSliceIds variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          pollInterval: pollInterval,
+          context: context,
+          document: documentNodeQueryGetSliceIds,
+          parserFn: _parserFn$Query$GetSliceIds,
+        );
+}
+
+class WatchOptions$Query$GetSliceIds
+    extends graphql.WatchQueryOptions<Query$GetSliceIds> {
+  WatchOptions$Query$GetSliceIds({
+    String? operationName,
+    required Variables$Query$GetSliceIds variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          document: documentNodeQueryGetSliceIds,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GetSliceIds,
+        );
+}
+
+class FetchMoreOptions$Query$GetSliceIds extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GetSliceIds({
+    required graphql.UpdateQuery updateQuery,
+    required Variables$Query$GetSliceIds variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables.toJson(),
+          document: documentNodeQueryGetSliceIds,
+        );
+}
+
+extension ClientExtension$Query$GetSliceIds on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GetSliceIds>> query$GetSliceIds(
+          Options$Query$GetSliceIds options) async =>
+      await this.query(options);
+  graphql.ObservableQuery<Query$GetSliceIds> watchQuery$GetSliceIds(
+          WatchOptions$Query$GetSliceIds options) =>
+      this.watchQuery(options);
+  void writeQuery$GetSliceIds({
+    required Query$GetSliceIds data,
+    required Variables$Query$GetSliceIds variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation: graphql.Operation(document: documentNodeQueryGetSliceIds),
+          variables: variables.toJson(),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GetSliceIds? readQuery$GetSliceIds({
+    required Variables$Query$GetSliceIds variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(document: documentNodeQueryGetSliceIds),
+        variables: variables.toJson(),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Query$GetSliceIds.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$GetSliceIds> useQuery$GetSliceIds(
+        Options$Query$GetSliceIds options) =>
+    graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$GetSliceIds> useWatchQuery$GetSliceIds(
+        WatchOptions$Query$GetSliceIds options) =>
+    graphql_flutter.useWatchQuery(options);
+
+class Query$GetSliceIds$Widget
+    extends graphql_flutter.Query<Query$GetSliceIds> {
+  Query$GetSliceIds$Widget({
+    widgets.Key? key,
+    required Options$Query$GetSliceIds options,
+    required graphql_flutter.QueryBuilder<Query$GetSliceIds> builder,
+  }) : super(
+          key: key,
+          options: options,
+          builder: builder,
+        );
+}
+
+class Query$GetSliceIds$slices {
+  Query$GetSliceIds$slices({
+    required this.id,
+    required this.$__typename,
+  });
+
+  factory Query$GetSliceIds$slices.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$$__typename = json['__typename'];
+    return Query$GetSliceIds$slices(
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetSliceIds$slices) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetSliceIds$slices
+    on Query$GetSliceIds$slices {
+  CopyWith$Query$GetSliceIds$slices<Query$GetSliceIds$slices> get copyWith =>
+      CopyWith$Query$GetSliceIds$slices(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$GetSliceIds$slices<TRes> {
+  factory CopyWith$Query$GetSliceIds$slices(
+    Query$GetSliceIds$slices instance,
+    TRes Function(Query$GetSliceIds$slices) then,
+  ) = _CopyWithImpl$Query$GetSliceIds$slices;
+
+  factory CopyWith$Query$GetSliceIds$slices.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetSliceIds$slices;
+
+  TRes call({
+    int? id,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$GetSliceIds$slices<TRes>
+    implements CopyWith$Query$GetSliceIds$slices<TRes> {
+  _CopyWithImpl$Query$GetSliceIds$slices(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetSliceIds$slices _instance;
+
+  final TRes Function(Query$GetSliceIds$slices) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetSliceIds$slices(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$GetSliceIds$slices<TRes>
+    implements CopyWith$Query$GetSliceIds$slices<TRes> {
+  _CopyWithStubImpl$Query$GetSliceIds$slices(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
     String? $__typename,
   }) =>
       _res;
@@ -3157,6 +5267,742 @@ class _CopyWithStubImpl$Query$GetSlices$slices$tags$tag$color<TRes>
   call({
     int? id,
     String? hex,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Variables$Query$GetSliceIdsByTags {
+  factory Variables$Query$GetSliceIdsByTags({
+    int? limit,
+    int? offset,
+    required String user_id,
+    List<int>? tag_ids,
+  }) =>
+      Variables$Query$GetSliceIdsByTags._({
+        if (limit != null) r'limit': limit,
+        if (offset != null) r'offset': offset,
+        r'user_id': user_id,
+        if (tag_ids != null) r'tag_ids': tag_ids,
+      });
+
+  Variables$Query$GetSliceIdsByTags._(this._$data);
+
+  factory Variables$Query$GetSliceIdsByTags.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('limit')) {
+      final l$limit = data['limit'];
+      result$data['limit'] = (l$limit as int?);
+    }
+    if (data.containsKey('offset')) {
+      final l$offset = data['offset'];
+      result$data['offset'] = (l$offset as int?);
+    }
+    final l$user_id = data['user_id'];
+    result$data['user_id'] = (l$user_id as String);
+    if (data.containsKey('tag_ids')) {
+      final l$tag_ids = data['tag_ids'];
+      result$data['tag_ids'] =
+          (l$tag_ids as List<dynamic>?)?.map((e) => (e as int)).toList();
+    }
+    return Variables$Query$GetSliceIdsByTags._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int? get limit => (_$data['limit'] as int?);
+  int? get offset => (_$data['offset'] as int?);
+  String get user_id => (_$data['user_id'] as String);
+  List<int>? get tag_ids => (_$data['tag_ids'] as List<int>?);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('limit')) {
+      final l$limit = limit;
+      result$data['limit'] = l$limit;
+    }
+    if (_$data.containsKey('offset')) {
+      final l$offset = offset;
+      result$data['offset'] = l$offset;
+    }
+    final l$user_id = user_id;
+    result$data['user_id'] = l$user_id;
+    if (_$data.containsKey('tag_ids')) {
+      final l$tag_ids = tag_ids;
+      result$data['tag_ids'] = l$tag_ids?.map((e) => e).toList();
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$GetSliceIdsByTags<Variables$Query$GetSliceIdsByTags>
+      get copyWith => CopyWith$Variables$Query$GetSliceIdsByTags(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$GetSliceIdsByTags) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (_$data.containsKey('limit') != other._$data.containsKey('limit')) {
+      return false;
+    }
+    if (l$limit != lOther$limit) {
+      return false;
+    }
+    final l$offset = offset;
+    final lOther$offset = other.offset;
+    if (_$data.containsKey('offset') != other._$data.containsKey('offset')) {
+      return false;
+    }
+    if (l$offset != lOther$offset) {
+      return false;
+    }
+    final l$user_id = user_id;
+    final lOther$user_id = other.user_id;
+    if (l$user_id != lOther$user_id) {
+      return false;
+    }
+    final l$tag_ids = tag_ids;
+    final lOther$tag_ids = other.tag_ids;
+    if (_$data.containsKey('tag_ids') != other._$data.containsKey('tag_ids')) {
+      return false;
+    }
+    if (l$tag_ids != null && lOther$tag_ids != null) {
+      if (l$tag_ids.length != lOther$tag_ids.length) {
+        return false;
+      }
+      for (int i = 0; i < l$tag_ids.length; i++) {
+        final l$tag_ids$entry = l$tag_ids[i];
+        final lOther$tag_ids$entry = lOther$tag_ids[i];
+        if (l$tag_ids$entry != lOther$tag_ids$entry) {
+          return false;
+        }
+      }
+    } else if (l$tag_ids != lOther$tag_ids) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$limit = limit;
+    final l$offset = offset;
+    final l$user_id = user_id;
+    final l$tag_ids = tag_ids;
+    return Object.hashAll([
+      _$data.containsKey('limit') ? l$limit : const {},
+      _$data.containsKey('offset') ? l$offset : const {},
+      l$user_id,
+      _$data.containsKey('tag_ids')
+          ? l$tag_ids == null
+              ? null
+              : Object.hashAll(l$tag_ids.map((v) => v))
+          : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$GetSliceIdsByTags<TRes> {
+  factory CopyWith$Variables$Query$GetSliceIdsByTags(
+    Variables$Query$GetSliceIdsByTags instance,
+    TRes Function(Variables$Query$GetSliceIdsByTags) then,
+  ) = _CopyWithImpl$Variables$Query$GetSliceIdsByTags;
+
+  factory CopyWith$Variables$Query$GetSliceIdsByTags.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GetSliceIdsByTags;
+
+  TRes call({
+    int? limit,
+    int? offset,
+    String? user_id,
+    List<int>? tag_ids,
+  });
+}
+
+class _CopyWithImpl$Variables$Query$GetSliceIdsByTags<TRes>
+    implements CopyWith$Variables$Query$GetSliceIdsByTags<TRes> {
+  _CopyWithImpl$Variables$Query$GetSliceIdsByTags(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$GetSliceIdsByTags _instance;
+
+  final TRes Function(Variables$Query$GetSliceIdsByTags) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? limit = _undefined,
+    Object? offset = _undefined,
+    Object? user_id = _undefined,
+    Object? tag_ids = _undefined,
+  }) =>
+      _then(Variables$Query$GetSliceIdsByTags._({
+        ..._instance._$data,
+        if (limit != _undefined) 'limit': (limit as int?),
+        if (offset != _undefined) 'offset': (offset as int?),
+        if (user_id != _undefined && user_id != null)
+          'user_id': (user_id as String),
+        if (tag_ids != _undefined) 'tag_ids': (tag_ids as List<int>?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$GetSliceIdsByTags<TRes>
+    implements CopyWith$Variables$Query$GetSliceIdsByTags<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetSliceIdsByTags(this._res);
+
+  TRes _res;
+
+  call({
+    int? limit,
+    int? offset,
+    String? user_id,
+    List<int>? tag_ids,
+  }) =>
+      _res;
+}
+
+class Query$GetSliceIdsByTags {
+  Query$GetSliceIdsByTags({
+    required this.slices,
+    required this.$__typename,
+  });
+
+  factory Query$GetSliceIdsByTags.fromJson(Map<String, dynamic> json) {
+    final l$slices = json['slices'];
+    final l$$__typename = json['__typename'];
+    return Query$GetSliceIdsByTags(
+      slices: (l$slices as List<dynamic>)
+          .map((e) => Query$GetSliceIdsByTags$slices.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Query$GetSliceIdsByTags$slices> slices;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$slices = slices;
+    _resultData['slices'] = l$slices.map((e) => e.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$slices = slices;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$slices.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetSliceIdsByTags) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$slices = slices;
+    final lOther$slices = other.slices;
+    if (l$slices.length != lOther$slices.length) {
+      return false;
+    }
+    for (int i = 0; i < l$slices.length; i++) {
+      final l$slices$entry = l$slices[i];
+      final lOther$slices$entry = lOther$slices[i];
+      if (l$slices$entry != lOther$slices$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetSliceIdsByTags on Query$GetSliceIdsByTags {
+  CopyWith$Query$GetSliceIdsByTags<Query$GetSliceIdsByTags> get copyWith =>
+      CopyWith$Query$GetSliceIdsByTags(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$GetSliceIdsByTags<TRes> {
+  factory CopyWith$Query$GetSliceIdsByTags(
+    Query$GetSliceIdsByTags instance,
+    TRes Function(Query$GetSliceIdsByTags) then,
+  ) = _CopyWithImpl$Query$GetSliceIdsByTags;
+
+  factory CopyWith$Query$GetSliceIdsByTags.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetSliceIdsByTags;
+
+  TRes call({
+    List<Query$GetSliceIdsByTags$slices>? slices,
+    String? $__typename,
+  });
+  TRes slices(
+      Iterable<Query$GetSliceIdsByTags$slices> Function(
+              Iterable<
+                  CopyWith$Query$GetSliceIdsByTags$slices<
+                      Query$GetSliceIdsByTags$slices>>)
+          _fn);
+}
+
+class _CopyWithImpl$Query$GetSliceIdsByTags<TRes>
+    implements CopyWith$Query$GetSliceIdsByTags<TRes> {
+  _CopyWithImpl$Query$GetSliceIdsByTags(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetSliceIdsByTags _instance;
+
+  final TRes Function(Query$GetSliceIdsByTags) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? slices = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetSliceIdsByTags(
+        slices: slices == _undefined || slices == null
+            ? _instance.slices
+            : (slices as List<Query$GetSliceIdsByTags$slices>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes slices(
+          Iterable<Query$GetSliceIdsByTags$slices> Function(
+                  Iterable<
+                      CopyWith$Query$GetSliceIdsByTags$slices<
+                          Query$GetSliceIdsByTags$slices>>)
+              _fn) =>
+      call(
+          slices: _fn(_instance.slices
+              .map((e) => CopyWith$Query$GetSliceIdsByTags$slices(
+                    e,
+                    (i) => i,
+                  ))).toList());
+}
+
+class _CopyWithStubImpl$Query$GetSliceIdsByTags<TRes>
+    implements CopyWith$Query$GetSliceIdsByTags<TRes> {
+  _CopyWithStubImpl$Query$GetSliceIdsByTags(this._res);
+
+  TRes _res;
+
+  call({
+    List<Query$GetSliceIdsByTags$slices>? slices,
+    String? $__typename,
+  }) =>
+      _res;
+  slices(_fn) => _res;
+}
+
+const documentNodeQueryGetSliceIdsByTags = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GetSliceIdsByTags'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'limit')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: IntValueNode(value: '30')),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'offset')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: IntValueNode(value: '0')),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'user_id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'tag_ids')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'bigint'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: ListValueNode(values: [])),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'slices'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'limit'),
+            value: VariableNode(name: NameNode(value: 'limit')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'offset'),
+            value: VariableNode(name: NameNode(value: 'offset')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'order_by'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'created_at'),
+                value: EnumValueNode(name: NameNode(value: 'desc')),
+              )
+            ]),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: '_and'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: 'user_id'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: '_eq'),
+                        value: VariableNode(name: NameNode(value: 'user_id')),
+                      )
+                    ]),
+                  ),
+                  ObjectFieldNode(
+                    name: NameNode(value: 'tags'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: 'tag_id'),
+                        value: ObjectValueNode(fields: [
+                          ObjectFieldNode(
+                            name: NameNode(value: '_in'),
+                            value:
+                                VariableNode(name: NameNode(value: 'tag_ids')),
+                          )
+                        ]),
+                      )
+                    ]),
+                  ),
+                ]),
+              )
+            ]),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Query$GetSliceIdsByTags _parserFn$Query$GetSliceIdsByTags(
+        Map<String, dynamic> data) =>
+    Query$GetSliceIdsByTags.fromJson(data);
+
+class Options$Query$GetSliceIdsByTags
+    extends graphql.QueryOptions<Query$GetSliceIdsByTags> {
+  Options$Query$GetSliceIdsByTags({
+    String? operationName,
+    required Variables$Query$GetSliceIdsByTags variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          pollInterval: pollInterval,
+          context: context,
+          document: documentNodeQueryGetSliceIdsByTags,
+          parserFn: _parserFn$Query$GetSliceIdsByTags,
+        );
+}
+
+class WatchOptions$Query$GetSliceIdsByTags
+    extends graphql.WatchQueryOptions<Query$GetSliceIdsByTags> {
+  WatchOptions$Query$GetSliceIdsByTags({
+    String? operationName,
+    required Variables$Query$GetSliceIdsByTags variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          document: documentNodeQueryGetSliceIdsByTags,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GetSliceIdsByTags,
+        );
+}
+
+class FetchMoreOptions$Query$GetSliceIdsByTags
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GetSliceIdsByTags({
+    required graphql.UpdateQuery updateQuery,
+    required Variables$Query$GetSliceIdsByTags variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables.toJson(),
+          document: documentNodeQueryGetSliceIdsByTags,
+        );
+}
+
+extension ClientExtension$Query$GetSliceIdsByTags on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GetSliceIdsByTags>> query$GetSliceIdsByTags(
+          Options$Query$GetSliceIdsByTags options) async =>
+      await this.query(options);
+  graphql.ObservableQuery<Query$GetSliceIdsByTags> watchQuery$GetSliceIdsByTags(
+          WatchOptions$Query$GetSliceIdsByTags options) =>
+      this.watchQuery(options);
+  void writeQuery$GetSliceIdsByTags({
+    required Query$GetSliceIdsByTags data,
+    required Variables$Query$GetSliceIdsByTags variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation:
+              graphql.Operation(document: documentNodeQueryGetSliceIdsByTags),
+          variables: variables.toJson(),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GetSliceIdsByTags? readQuery$GetSliceIdsByTags({
+    required Variables$Query$GetSliceIdsByTags variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation:
+            graphql.Operation(document: documentNodeQueryGetSliceIdsByTags),
+        variables: variables.toJson(),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Query$GetSliceIdsByTags.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$GetSliceIdsByTags>
+    useQuery$GetSliceIdsByTags(Options$Query$GetSliceIdsByTags options) =>
+        graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$GetSliceIdsByTags>
+    useWatchQuery$GetSliceIdsByTags(
+            WatchOptions$Query$GetSliceIdsByTags options) =>
+        graphql_flutter.useWatchQuery(options);
+
+class Query$GetSliceIdsByTags$Widget
+    extends graphql_flutter.Query<Query$GetSliceIdsByTags> {
+  Query$GetSliceIdsByTags$Widget({
+    widgets.Key? key,
+    required Options$Query$GetSliceIdsByTags options,
+    required graphql_flutter.QueryBuilder<Query$GetSliceIdsByTags> builder,
+  }) : super(
+          key: key,
+          options: options,
+          builder: builder,
+        );
+}
+
+class Query$GetSliceIdsByTags$slices {
+  Query$GetSliceIdsByTags$slices({
+    required this.id,
+    required this.$__typename,
+  });
+
+  factory Query$GetSliceIdsByTags$slices.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$$__typename = json['__typename'];
+    return Query$GetSliceIdsByTags$slices(
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GetSliceIdsByTags$slices) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GetSliceIdsByTags$slices
+    on Query$GetSliceIdsByTags$slices {
+  CopyWith$Query$GetSliceIdsByTags$slices<Query$GetSliceIdsByTags$slices>
+      get copyWith => CopyWith$Query$GetSliceIdsByTags$slices(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GetSliceIdsByTags$slices<TRes> {
+  factory CopyWith$Query$GetSliceIdsByTags$slices(
+    Query$GetSliceIdsByTags$slices instance,
+    TRes Function(Query$GetSliceIdsByTags$slices) then,
+  ) = _CopyWithImpl$Query$GetSliceIdsByTags$slices;
+
+  factory CopyWith$Query$GetSliceIdsByTags$slices.stub(TRes res) =
+      _CopyWithStubImpl$Query$GetSliceIdsByTags$slices;
+
+  TRes call({
+    int? id,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$GetSliceIdsByTags$slices<TRes>
+    implements CopyWith$Query$GetSliceIdsByTags$slices<TRes> {
+  _CopyWithImpl$Query$GetSliceIdsByTags$slices(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GetSliceIdsByTags$slices _instance;
+
+  final TRes Function(Query$GetSliceIdsByTags$slices) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GetSliceIdsByTags$slices(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$GetSliceIdsByTags$slices<TRes>
+    implements CopyWith$Query$GetSliceIdsByTags$slices<TRes> {
+  _CopyWithStubImpl$Query$GetSliceIdsByTags$slices(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
     String? $__typename,
   }) =>
       _res;
@@ -5113,10 +7959,6 @@ const documentNodeMutationDeleteSlice = DocumentNode(definitions: [
             alias: null,
             arguments: [
               ArgumentNode(
-                name: NameNode(value: 'limit'),
-                value: IntValueNode(value: '1'),
-              ),
-              ArgumentNode(
                 name: NameNode(value: 'order_by'),
                 value: ObjectValueNode(fields: [
                   ObjectFieldNode(
@@ -5124,7 +7966,7 @@ const documentNodeMutationDeleteSlice = DocumentNode(definitions: [
                     value: EnumValueNode(name: NameNode(value: 'desc')),
                   )
                 ]),
-              ),
+              )
             ],
             directives: [],
             selectionSet: SelectionSetNode(selections: [

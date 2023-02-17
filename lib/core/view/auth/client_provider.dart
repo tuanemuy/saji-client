@@ -5,9 +5,9 @@ import 'package:get_it/get_it.dart';
 import 'package:saji_client/config/config.dart';
 import 'package:saji_client/core/auth.dart';
 
-final authUseCase = GetIt.instance<AuthUseCase>();
-
 class AuthClientProvider extends StatelessWidget {
+  static final authUseCase = GetIt.instance<AuthUseCase>();
+
   final Widget child;
 
   const AuthClientProvider({Key? key, required this.child}) : super(key: key);

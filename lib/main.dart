@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:saji_client/components/layout/app_bar.dart';
 import 'package:saji_client/components/layout/drawer.dart';
-import 'package:saji_client/graphql/view/client_provider.dart';
 import 'package:saji_client/core/view/auth/auth_required.dart';
 import 'package:saji_client/core/view/auth/client_provider.dart';
 import 'package:saji_client/pages/home.dart';
 
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -31,22 +32,23 @@ void main() async {
     ..registerSingleton<AuthRepository>(authRepository)
     ..registerSingleton<AuthUseCase>(AuthInteractor(authRepository));
 
-  runApp(MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends HookWidget {
   MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return AuthClientProvider(
+        child: MaterialApp.router(
       title: 'Saji',
       theme: ThemeData(
           colorSchemeSeed: Colors.blueGrey,
           useMaterial3: true,
           fontFamily: 'LINESeed'),
       routerConfig: _router,
-    );
+    ));
   }
 
   final _router = GoRouter(routes: [
@@ -57,8 +59,7 @@ class MyApp extends StatelessWidget {
               backgroundColor: const Color(0xfffafafa),
               appBar: appBar,
               drawer: const MyDrawer(),
-              body: const AuthRequired(
-                  child: AuthClientProvider(child: HomePage())));
+              body: const SafeArea(child: AuthRequired(child: HomePage())));
         })
   ]);
 }

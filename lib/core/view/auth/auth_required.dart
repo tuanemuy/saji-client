@@ -5,10 +5,10 @@ import 'package:saji_client/core/view/auth/form.dart';
 
 import './verify_email.dart';
 
-final authUseCase = GetIt.instance<AuthUseCase>();
-
 class AuthRequired extends StatelessWidget {
   final Widget child;
+
+  static final authUseCase = GetIt.instance<AuthUseCase>();
 
   const AuthRequired({Key? key, required this.child}) : super(key: key);
 

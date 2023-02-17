@@ -8,10 +8,12 @@ class Variables$Mutation$CreateRevision {
   factory Variables$Mutation$CreateRevision({
     required int slice_id,
     required String content,
+    required DateTime min_created_at,
   }) =>
       Variables$Mutation$CreateRevision._({
         r'slice_id': slice_id,
         r'content': content,
+        r'min_created_at': min_created_at,
       });
 
   Variables$Mutation$CreateRevision._(this._$data);
@@ -23,6 +25,9 @@ class Variables$Mutation$CreateRevision {
     result$data['slice_id'] = (l$slice_id as int);
     final l$content = data['content'];
     result$data['content'] = (l$content as String);
+    final l$min_created_at = data['min_created_at'];
+    result$data['min_created_at'] =
+        DateTime.parse((l$min_created_at as String));
     return Variables$Mutation$CreateRevision._(result$data);
   }
 
@@ -30,12 +35,15 @@ class Variables$Mutation$CreateRevision {
 
   int get slice_id => (_$data['slice_id'] as int);
   String get content => (_$data['content'] as String);
+  DateTime get min_created_at => (_$data['min_created_at'] as DateTime);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$slice_id = slice_id;
     result$data['slice_id'] = l$slice_id;
     final l$content = content;
     result$data['content'] = l$content;
+    final l$min_created_at = min_created_at;
+    result$data['min_created_at'] = l$min_created_at.toIso8601String();
     return result$data;
   }
 
@@ -63,6 +71,11 @@ class Variables$Mutation$CreateRevision {
     if (l$content != lOther$content) {
       return false;
     }
+    final l$min_created_at = min_created_at;
+    final lOther$min_created_at = other.min_created_at;
+    if (l$min_created_at != lOther$min_created_at) {
+      return false;
+    }
     return true;
   }
 
@@ -70,9 +83,11 @@ class Variables$Mutation$CreateRevision {
   int get hashCode {
     final l$slice_id = slice_id;
     final l$content = content;
+    final l$min_created_at = min_created_at;
     return Object.hashAll([
       l$slice_id,
       l$content,
+      l$min_created_at,
     ]);
   }
 }
@@ -89,6 +104,7 @@ abstract class CopyWith$Variables$Mutation$CreateRevision<TRes> {
   TRes call({
     int? slice_id,
     String? content,
+    DateTime? min_created_at,
   });
 }
 
@@ -108,6 +124,7 @@ class _CopyWithImpl$Variables$Mutation$CreateRevision<TRes>
   TRes call({
     Object? slice_id = _undefined,
     Object? content = _undefined,
+    Object? min_created_at = _undefined,
   }) =>
       _then(Variables$Mutation$CreateRevision._({
         ..._instance._$data,
@@ -115,6 +132,8 @@ class _CopyWithImpl$Variables$Mutation$CreateRevision<TRes>
           'slice_id': (slice_id as int),
         if (content != _undefined && content != null)
           'content': (content as String),
+        if (min_created_at != _undefined && min_created_at != null)
+          'min_created_at': (min_created_at as DateTime),
       }));
 }
 
@@ -127,6 +146,7 @@ class _CopyWithStubImpl$Variables$Mutation$CreateRevision<TRes>
   call({
     int? slice_id,
     String? content,
+    DateTime? min_created_at,
   }) =>
       _res;
 }
@@ -134,22 +154,30 @@ class _CopyWithStubImpl$Variables$Mutation$CreateRevision<TRes>
 class Mutation$CreateRevision {
   Mutation$CreateRevision({
     this.insert_revisions_one,
+    this.delete_revisions,
     required this.$__typename,
   });
 
   factory Mutation$CreateRevision.fromJson(Map<String, dynamic> json) {
     final l$insert_revisions_one = json['insert_revisions_one'];
+    final l$delete_revisions = json['delete_revisions'];
     final l$$__typename = json['__typename'];
     return Mutation$CreateRevision(
       insert_revisions_one: l$insert_revisions_one == null
           ? null
           : Mutation$CreateRevision$insert_revisions_one.fromJson(
               (l$insert_revisions_one as Map<String, dynamic>)),
+      delete_revisions: l$delete_revisions == null
+          ? null
+          : Mutation$CreateRevision$delete_revisions.fromJson(
+              (l$delete_revisions as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
   final Mutation$CreateRevision$insert_revisions_one? insert_revisions_one;
+
+  final Mutation$CreateRevision$delete_revisions? delete_revisions;
 
   final String $__typename;
 
@@ -157,6 +185,8 @@ class Mutation$CreateRevision {
     final _resultData = <String, dynamic>{};
     final l$insert_revisions_one = insert_revisions_one;
     _resultData['insert_revisions_one'] = l$insert_revisions_one?.toJson();
+    final l$delete_revisions = delete_revisions;
+    _resultData['delete_revisions'] = l$delete_revisions?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -165,9 +195,11 @@ class Mutation$CreateRevision {
   @override
   int get hashCode {
     final l$insert_revisions_one = insert_revisions_one;
+    final l$delete_revisions = delete_revisions;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$insert_revisions_one,
+      l$delete_revisions,
       l$$__typename,
     ]);
   }
@@ -184,6 +216,11 @@ class Mutation$CreateRevision {
     final l$insert_revisions_one = insert_revisions_one;
     final lOther$insert_revisions_one = other.insert_revisions_one;
     if (l$insert_revisions_one != lOther$insert_revisions_one) {
+      return false;
+    }
+    final l$delete_revisions = delete_revisions;
+    final lOther$delete_revisions = other.delete_revisions;
+    if (l$delete_revisions != lOther$delete_revisions) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -214,10 +251,12 @@ abstract class CopyWith$Mutation$CreateRevision<TRes> {
 
   TRes call({
     Mutation$CreateRevision$insert_revisions_one? insert_revisions_one,
+    Mutation$CreateRevision$delete_revisions? delete_revisions,
     String? $__typename,
   });
   CopyWith$Mutation$CreateRevision$insert_revisions_one<TRes>
       get insert_revisions_one;
+  CopyWith$Mutation$CreateRevision$delete_revisions<TRes> get delete_revisions;
 }
 
 class _CopyWithImpl$Mutation$CreateRevision<TRes>
@@ -235,6 +274,7 @@ class _CopyWithImpl$Mutation$CreateRevision<TRes>
 
   TRes call({
     Object? insert_revisions_one = _undefined,
+    Object? delete_revisions = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$CreateRevision(
@@ -242,6 +282,9 @@ class _CopyWithImpl$Mutation$CreateRevision<TRes>
             ? _instance.insert_revisions_one
             : (insert_revisions_one
                 as Mutation$CreateRevision$insert_revisions_one?),
+        delete_revisions: delete_revisions == _undefined
+            ? _instance.delete_revisions
+            : (delete_revisions as Mutation$CreateRevision$delete_revisions?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -255,6 +298,15 @@ class _CopyWithImpl$Mutation$CreateRevision<TRes>
         : CopyWith$Mutation$CreateRevision$insert_revisions_one(
             local$insert_revisions_one, (e) => call(insert_revisions_one: e));
   }
+
+  CopyWith$Mutation$CreateRevision$delete_revisions<TRes> get delete_revisions {
+    final local$delete_revisions = _instance.delete_revisions;
+    return local$delete_revisions == null
+        ? CopyWith$Mutation$CreateRevision$delete_revisions.stub(
+            _then(_instance))
+        : CopyWith$Mutation$CreateRevision$delete_revisions(
+            local$delete_revisions, (e) => call(delete_revisions: e));
+  }
 }
 
 class _CopyWithStubImpl$Mutation$CreateRevision<TRes>
@@ -265,12 +317,16 @@ class _CopyWithStubImpl$Mutation$CreateRevision<TRes>
 
   call({
     Mutation$CreateRevision$insert_revisions_one? insert_revisions_one,
+    Mutation$CreateRevision$delete_revisions? delete_revisions,
     String? $__typename,
   }) =>
       _res;
   CopyWith$Mutation$CreateRevision$insert_revisions_one<TRes>
       get insert_revisions_one =>
           CopyWith$Mutation$CreateRevision$insert_revisions_one.stub(_res);
+  CopyWith$Mutation$CreateRevision$delete_revisions<TRes>
+      get delete_revisions =>
+          CopyWith$Mutation$CreateRevision$delete_revisions.stub(_res);
 }
 
 const documentNodeMutationCreateRevision = DocumentNode(definitions: [
@@ -291,6 +347,15 @@ const documentNodeMutationCreateRevision = DocumentNode(definitions: [
         variable: VariableNode(name: NameNode(value: 'content')),
         type: NamedTypeNode(
           name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'min_created_at')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'timestamptz'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -353,6 +418,101 @@ const documentNodeMutationCreateRevision = DocumentNode(definitions: [
             arguments: [],
             directives: [],
             selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: 'delete_revisions'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: '_and'),
+                value: ObjectValueNode(fields: [
+                  ObjectFieldNode(
+                    name: NameNode(value: 'slice_id'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: '_eq'),
+                        value: VariableNode(name: NameNode(value: 'slice_id')),
+                      )
+                    ]),
+                  ),
+                  ObjectFieldNode(
+                    name: NameNode(value: 'updated_at'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: '_lt'),
+                        value: VariableNode(
+                            name: NameNode(value: 'min_created_at')),
+                      )
+                    ]),
+                  ),
+                ]),
+              )
+            ]),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'returning'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'content'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'created_at'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'updated_at'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'slice_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -784,10 +944,383 @@ class _CopyWithStubImpl$Mutation$CreateRevision$insert_revisions_one<TRes>
       _res;
 }
 
+class Mutation$CreateRevision$delete_revisions {
+  Mutation$CreateRevision$delete_revisions({
+    required this.returning,
+    required this.$__typename,
+  });
+
+  factory Mutation$CreateRevision$delete_revisions.fromJson(
+      Map<String, dynamic> json) {
+    final l$returning = json['returning'];
+    final l$$__typename = json['__typename'];
+    return Mutation$CreateRevision$delete_revisions(
+      returning: (l$returning as List<dynamic>)
+          .map((e) =>
+              Mutation$CreateRevision$delete_revisions$returning.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Mutation$CreateRevision$delete_revisions$returning> returning;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$returning = returning;
+    _resultData['returning'] = l$returning.map((e) => e.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$returning = returning;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$returning.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$CreateRevision$delete_revisions) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$returning = returning;
+    final lOther$returning = other.returning;
+    if (l$returning.length != lOther$returning.length) {
+      return false;
+    }
+    for (int i = 0; i < l$returning.length; i++) {
+      final l$returning$entry = l$returning[i];
+      final lOther$returning$entry = lOther$returning[i];
+      if (l$returning$entry != lOther$returning$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$CreateRevision$delete_revisions
+    on Mutation$CreateRevision$delete_revisions {
+  CopyWith$Mutation$CreateRevision$delete_revisions<
+          Mutation$CreateRevision$delete_revisions>
+      get copyWith => CopyWith$Mutation$CreateRevision$delete_revisions(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$CreateRevision$delete_revisions<TRes> {
+  factory CopyWith$Mutation$CreateRevision$delete_revisions(
+    Mutation$CreateRevision$delete_revisions instance,
+    TRes Function(Mutation$CreateRevision$delete_revisions) then,
+  ) = _CopyWithImpl$Mutation$CreateRevision$delete_revisions;
+
+  factory CopyWith$Mutation$CreateRevision$delete_revisions.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$CreateRevision$delete_revisions;
+
+  TRes call({
+    List<Mutation$CreateRevision$delete_revisions$returning>? returning,
+    String? $__typename,
+  });
+  TRes returning(
+      Iterable<Mutation$CreateRevision$delete_revisions$returning> Function(
+              Iterable<
+                  CopyWith$Mutation$CreateRevision$delete_revisions$returning<
+                      Mutation$CreateRevision$delete_revisions$returning>>)
+          _fn);
+}
+
+class _CopyWithImpl$Mutation$CreateRevision$delete_revisions<TRes>
+    implements CopyWith$Mutation$CreateRevision$delete_revisions<TRes> {
+  _CopyWithImpl$Mutation$CreateRevision$delete_revisions(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$CreateRevision$delete_revisions _instance;
+
+  final TRes Function(Mutation$CreateRevision$delete_revisions) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? returning = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$CreateRevision$delete_revisions(
+        returning: returning == _undefined || returning == null
+            ? _instance.returning
+            : (returning
+                as List<Mutation$CreateRevision$delete_revisions$returning>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes returning(
+          Iterable<Mutation$CreateRevision$delete_revisions$returning> Function(
+                  Iterable<
+                      CopyWith$Mutation$CreateRevision$delete_revisions$returning<
+                          Mutation$CreateRevision$delete_revisions$returning>>)
+              _fn) =>
+      call(
+          returning: _fn(_instance.returning.map((e) =>
+              CopyWith$Mutation$CreateRevision$delete_revisions$returning(
+                e,
+                (i) => i,
+              ))).toList());
+}
+
+class _CopyWithStubImpl$Mutation$CreateRevision$delete_revisions<TRes>
+    implements CopyWith$Mutation$CreateRevision$delete_revisions<TRes> {
+  _CopyWithStubImpl$Mutation$CreateRevision$delete_revisions(this._res);
+
+  TRes _res;
+
+  call({
+    List<Mutation$CreateRevision$delete_revisions$returning>? returning,
+    String? $__typename,
+  }) =>
+      _res;
+  returning(_fn) => _res;
+}
+
+class Mutation$CreateRevision$delete_revisions$returning {
+  Mutation$CreateRevision$delete_revisions$returning({
+    required this.id,
+    required this.content,
+    required this.created_at,
+    required this.updated_at,
+    required this.slice_id,
+    required this.$__typename,
+  });
+
+  factory Mutation$CreateRevision$delete_revisions$returning.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$content = json['content'];
+    final l$created_at = json['created_at'];
+    final l$updated_at = json['updated_at'];
+    final l$slice_id = json['slice_id'];
+    final l$$__typename = json['__typename'];
+    return Mutation$CreateRevision$delete_revisions$returning(
+      id: (l$id as int),
+      content: (l$content as String),
+      created_at: DateTime.parse((l$created_at as String)),
+      updated_at: DateTime.parse((l$updated_at as String)),
+      slice_id: (l$slice_id as int),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String content;
+
+  final DateTime created_at;
+
+  final DateTime updated_at;
+
+  final int slice_id;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$content = content;
+    _resultData['content'] = l$content;
+    final l$created_at = created_at;
+    _resultData['created_at'] = l$created_at.toIso8601String();
+    final l$updated_at = updated_at;
+    _resultData['updated_at'] = l$updated_at.toIso8601String();
+    final l$slice_id = slice_id;
+    _resultData['slice_id'] = l$slice_id;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$content = content;
+    final l$created_at = created_at;
+    final l$updated_at = updated_at;
+    final l$slice_id = slice_id;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$content,
+      l$created_at,
+      l$updated_at,
+      l$slice_id,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$CreateRevision$delete_revisions$returning) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$content = content;
+    final lOther$content = other.content;
+    if (l$content != lOther$content) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    final l$slice_id = slice_id;
+    final lOther$slice_id = other.slice_id;
+    if (l$slice_id != lOther$slice_id) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$CreateRevision$delete_revisions$returning
+    on Mutation$CreateRevision$delete_revisions$returning {
+  CopyWith$Mutation$CreateRevision$delete_revisions$returning<
+          Mutation$CreateRevision$delete_revisions$returning>
+      get copyWith =>
+          CopyWith$Mutation$CreateRevision$delete_revisions$returning(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$CreateRevision$delete_revisions$returning<
+    TRes> {
+  factory CopyWith$Mutation$CreateRevision$delete_revisions$returning(
+    Mutation$CreateRevision$delete_revisions$returning instance,
+    TRes Function(Mutation$CreateRevision$delete_revisions$returning) then,
+  ) = _CopyWithImpl$Mutation$CreateRevision$delete_revisions$returning;
+
+  factory CopyWith$Mutation$CreateRevision$delete_revisions$returning.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$CreateRevision$delete_revisions$returning;
+
+  TRes call({
+    int? id,
+    String? content,
+    DateTime? created_at,
+    DateTime? updated_at,
+    int? slice_id,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$CreateRevision$delete_revisions$returning<TRes>
+    implements
+        CopyWith$Mutation$CreateRevision$delete_revisions$returning<TRes> {
+  _CopyWithImpl$Mutation$CreateRevision$delete_revisions$returning(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$CreateRevision$delete_revisions$returning _instance;
+
+  final TRes Function(Mutation$CreateRevision$delete_revisions$returning) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? content = _undefined,
+    Object? created_at = _undefined,
+    Object? updated_at = _undefined,
+    Object? slice_id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$CreateRevision$delete_revisions$returning(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        content: content == _undefined || content == null
+            ? _instance.content
+            : (content as String),
+        created_at: created_at == _undefined || created_at == null
+            ? _instance.created_at
+            : (created_at as DateTime),
+        updated_at: updated_at == _undefined || updated_at == null
+            ? _instance.updated_at
+            : (updated_at as DateTime),
+        slice_id: slice_id == _undefined || slice_id == null
+            ? _instance.slice_id
+            : (slice_id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$CreateRevision$delete_revisions$returning<TRes>
+    implements
+        CopyWith$Mutation$CreateRevision$delete_revisions$returning<TRes> {
+  _CopyWithStubImpl$Mutation$CreateRevision$delete_revisions$returning(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? content,
+    DateTime? created_at,
+    DateTime? updated_at,
+    int? slice_id,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
 class Variables$Query$GetRevisions {
-  factory Variables$Query$GetRevisions({required int slice_id}) =>
+  factory Variables$Query$GetRevisions({
+    required int slice_id,
+    int? limit,
+  }) =>
       Variables$Query$GetRevisions._({
         r'slice_id': slice_id,
+        if (limit != null) r'limit': limit,
       });
 
   Variables$Query$GetRevisions._(this._$data);
@@ -796,16 +1329,25 @@ class Variables$Query$GetRevisions {
     final result$data = <String, dynamic>{};
     final l$slice_id = data['slice_id'];
     result$data['slice_id'] = (l$slice_id as int);
+    if (data.containsKey('limit')) {
+      final l$limit = data['limit'];
+      result$data['limit'] = (l$limit as int?);
+    }
     return Variables$Query$GetRevisions._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
   int get slice_id => (_$data['slice_id'] as int);
+  int? get limit => (_$data['limit'] as int?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$slice_id = slice_id;
     result$data['slice_id'] = l$slice_id;
+    if (_$data.containsKey('limit')) {
+      final l$limit = limit;
+      result$data['limit'] = l$limit;
+    }
     return result$data;
   }
 
@@ -828,13 +1370,25 @@ class Variables$Query$GetRevisions {
     if (l$slice_id != lOther$slice_id) {
       return false;
     }
+    final l$limit = limit;
+    final lOther$limit = other.limit;
+    if (_$data.containsKey('limit') != other._$data.containsKey('limit')) {
+      return false;
+    }
+    if (l$limit != lOther$limit) {
+      return false;
+    }
     return true;
   }
 
   @override
   int get hashCode {
     final l$slice_id = slice_id;
-    return Object.hashAll([l$slice_id]);
+    final l$limit = limit;
+    return Object.hashAll([
+      l$slice_id,
+      _$data.containsKey('limit') ? l$limit : const {},
+    ]);
   }
 }
 
@@ -847,7 +1401,10 @@ abstract class CopyWith$Variables$Query$GetRevisions<TRes> {
   factory CopyWith$Variables$Query$GetRevisions.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$GetRevisions;
 
-  TRes call({int? slice_id});
+  TRes call({
+    int? slice_id,
+    int? limit,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$GetRevisions<TRes>
@@ -863,11 +1420,15 @@ class _CopyWithImpl$Variables$Query$GetRevisions<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? slice_id = _undefined}) =>
+  TRes call({
+    Object? slice_id = _undefined,
+    Object? limit = _undefined,
+  }) =>
       _then(Variables$Query$GetRevisions._({
         ..._instance._$data,
         if (slice_id != _undefined && slice_id != null)
           'slice_id': (slice_id as int),
+        if (limit != _undefined) 'limit': (limit as int?),
       }));
 }
 
@@ -877,7 +1438,11 @@ class _CopyWithStubImpl$Variables$Query$GetRevisions<TRes>
 
   TRes _res;
 
-  call({int? slice_id}) => _res;
+  call({
+    int? slice_id,
+    int? limit,
+  }) =>
+      _res;
 }
 
 class Query$GetRevisions {
@@ -1045,7 +1610,16 @@ const documentNodeQueryGetRevisions = DocumentNode(definitions: [
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'limit')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: IntValueNode(value: '10')),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -1053,6 +1627,10 @@ const documentNodeQueryGetRevisions = DocumentNode(definitions: [
         name: NameNode(value: 'revisions'),
         alias: null,
         arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'limit'),
+            value: VariableNode(name: NameNode(value: 'limit')),
+          ),
           ArgumentNode(
             name: NameNode(value: 'order_by'),
             value: ObjectValueNode(fields: [
@@ -2247,10 +2825,766 @@ class _CopyWithStubImpl$Mutation$UpdateRevision$update_revisions_by_pk<TRes>
       _res;
 }
 
+class Variables$Mutation$RestoreRevision {
+  factory Variables$Mutation$RestoreRevision({required int id}) =>
+      Variables$Mutation$RestoreRevision._({
+        r'id': id,
+      });
+
+  Variables$Mutation$RestoreRevision._(this._$data);
+
+  factory Variables$Mutation$RestoreRevision.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$id = data['id'];
+    result$data['id'] = (l$id as int);
+    return Variables$Mutation$RestoreRevision._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  int get id => (_$data['id'] as int);
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$id = id;
+    result$data['id'] = l$id;
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$RestoreRevision<
+          Variables$Mutation$RestoreRevision>
+      get copyWith => CopyWith$Variables$Mutation$RestoreRevision(
+            this,
+            (i) => i,
+          );
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Mutation$RestoreRevision) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    return Object.hashAll([l$id]);
+  }
+}
+
+abstract class CopyWith$Variables$Mutation$RestoreRevision<TRes> {
+  factory CopyWith$Variables$Mutation$RestoreRevision(
+    Variables$Mutation$RestoreRevision instance,
+    TRes Function(Variables$Mutation$RestoreRevision) then,
+  ) = _CopyWithImpl$Variables$Mutation$RestoreRevision;
+
+  factory CopyWith$Variables$Mutation$RestoreRevision.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$RestoreRevision;
+
+  TRes call({int? id});
+}
+
+class _CopyWithImpl$Variables$Mutation$RestoreRevision<TRes>
+    implements CopyWith$Variables$Mutation$RestoreRevision<TRes> {
+  _CopyWithImpl$Variables$Mutation$RestoreRevision(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Mutation$RestoreRevision _instance;
+
+  final TRes Function(Variables$Mutation$RestoreRevision) _then;
+
+  static const _undefined = {};
+
+  TRes call({Object? id = _undefined}) =>
+      _then(Variables$Mutation$RestoreRevision._({
+        ..._instance._$data,
+        if (id != _undefined && id != null) 'id': (id as int),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$RestoreRevision<TRes>
+    implements CopyWith$Variables$Mutation$RestoreRevision<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$RestoreRevision(this._res);
+
+  TRes _res;
+
+  call({int? id}) => _res;
+}
+
+class Mutation$RestoreRevision {
+  Mutation$RestoreRevision({
+    this.update_revisions_by_pk,
+    required this.$__typename,
+  });
+
+  factory Mutation$RestoreRevision.fromJson(Map<String, dynamic> json) {
+    final l$update_revisions_by_pk = json['update_revisions_by_pk'];
+    final l$$__typename = json['__typename'];
+    return Mutation$RestoreRevision(
+      update_revisions_by_pk: l$update_revisions_by_pk == null
+          ? null
+          : Mutation$RestoreRevision$update_revisions_by_pk.fromJson(
+              (l$update_revisions_by_pk as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$RestoreRevision$update_revisions_by_pk? update_revisions_by_pk;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$update_revisions_by_pk = update_revisions_by_pk;
+    _resultData['update_revisions_by_pk'] = l$update_revisions_by_pk?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$update_revisions_by_pk = update_revisions_by_pk;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$update_revisions_by_pk,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$RestoreRevision) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$update_revisions_by_pk = update_revisions_by_pk;
+    final lOther$update_revisions_by_pk = other.update_revisions_by_pk;
+    if (l$update_revisions_by_pk != lOther$update_revisions_by_pk) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$RestoreRevision
+    on Mutation$RestoreRevision {
+  CopyWith$Mutation$RestoreRevision<Mutation$RestoreRevision> get copyWith =>
+      CopyWith$Mutation$RestoreRevision(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Mutation$RestoreRevision<TRes> {
+  factory CopyWith$Mutation$RestoreRevision(
+    Mutation$RestoreRevision instance,
+    TRes Function(Mutation$RestoreRevision) then,
+  ) = _CopyWithImpl$Mutation$RestoreRevision;
+
+  factory CopyWith$Mutation$RestoreRevision.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$RestoreRevision;
+
+  TRes call({
+    Mutation$RestoreRevision$update_revisions_by_pk? update_revisions_by_pk,
+    String? $__typename,
+  });
+  CopyWith$Mutation$RestoreRevision$update_revisions_by_pk<TRes>
+      get update_revisions_by_pk;
+}
+
+class _CopyWithImpl$Mutation$RestoreRevision<TRes>
+    implements CopyWith$Mutation$RestoreRevision<TRes> {
+  _CopyWithImpl$Mutation$RestoreRevision(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$RestoreRevision _instance;
+
+  final TRes Function(Mutation$RestoreRevision) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? update_revisions_by_pk = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$RestoreRevision(
+        update_revisions_by_pk: update_revisions_by_pk == _undefined
+            ? _instance.update_revisions_by_pk
+            : (update_revisions_by_pk
+                as Mutation$RestoreRevision$update_revisions_by_pk?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$RestoreRevision$update_revisions_by_pk<TRes>
+      get update_revisions_by_pk {
+    final local$update_revisions_by_pk = _instance.update_revisions_by_pk;
+    return local$update_revisions_by_pk == null
+        ? CopyWith$Mutation$RestoreRevision$update_revisions_by_pk.stub(
+            _then(_instance))
+        : CopyWith$Mutation$RestoreRevision$update_revisions_by_pk(
+            local$update_revisions_by_pk,
+            (e) => call(update_revisions_by_pk: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$RestoreRevision<TRes>
+    implements CopyWith$Mutation$RestoreRevision<TRes> {
+  _CopyWithStubImpl$Mutation$RestoreRevision(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$RestoreRevision$update_revisions_by_pk? update_revisions_by_pk,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$RestoreRevision$update_revisions_by_pk<TRes>
+      get update_revisions_by_pk =>
+          CopyWith$Mutation$RestoreRevision$update_revisions_by_pk.stub(_res);
+}
+
+const documentNodeMutationRestoreRevision = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'RestoreRevision'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'bigint'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'update_revisions_by_pk'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'pk_columns'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'id'),
+                value: VariableNode(name: NameNode(value: 'id')),
+              )
+            ]),
+          ),
+          ArgumentNode(
+            name: NameNode(value: '_set'),
+            value: ObjectValueNode(fields: [
+              ObjectFieldNode(
+                name: NameNode(value: 'updated_at'),
+                value: StringValueNode(
+                  value: 'now()',
+                  isBlock: false,
+                ),
+              )
+            ]),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'content'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'updated_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'slice_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Mutation$RestoreRevision _parserFn$Mutation$RestoreRevision(
+        Map<String, dynamic> data) =>
+    Mutation$RestoreRevision.fromJson(data);
+typedef OnMutationCompleted$Mutation$RestoreRevision = FutureOr<void> Function(
+  dynamic,
+  Mutation$RestoreRevision?,
+);
+
+class Options$Mutation$RestoreRevision
+    extends graphql.MutationOptions<Mutation$RestoreRevision> {
+  Options$Mutation$RestoreRevision({
+    String? operationName,
+    required Variables$Mutation$RestoreRevision variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$RestoreRevision? onCompleted,
+    graphql.OnMutationUpdate<Mutation$RestoreRevision>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$RestoreRevision(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationRestoreRevision,
+          parserFn: _parserFn$Mutation$RestoreRevision,
+        );
+
+  final OnMutationCompleted$Mutation$RestoreRevision? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+class WatchOptions$Mutation$RestoreRevision
+    extends graphql.WatchQueryOptions<Mutation$RestoreRevision> {
+  WatchOptions$Mutation$RestoreRevision({
+    String? operationName,
+    required Variables$Mutation$RestoreRevision variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          document: documentNodeMutationRestoreRevision,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$RestoreRevision,
+        );
+}
+
+extension ClientExtension$Mutation$RestoreRevision on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$RestoreRevision>> mutate$RestoreRevision(
+          Options$Mutation$RestoreRevision options) async =>
+      await this.mutate(options);
+  graphql.ObservableQuery<Mutation$RestoreRevision>
+      watchMutation$RestoreRevision(
+              WatchOptions$Mutation$RestoreRevision options) =>
+          this.watchMutation(options);
+}
+
+class Mutation$RestoreRevision$HookResult {
+  Mutation$RestoreRevision$HookResult(
+    this.runMutation,
+    this.result,
+  );
+
+  final RunMutation$Mutation$RestoreRevision runMutation;
+
+  final graphql.QueryResult<Mutation$RestoreRevision> result;
+}
+
+Mutation$RestoreRevision$HookResult useMutation$RestoreRevision(
+    [WidgetOptions$Mutation$RestoreRevision? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$RestoreRevision());
+  return Mutation$RestoreRevision$HookResult(
+    (variables, {optimisticResult}) => result.runMutation(
+      variables.toJson(),
+      optimisticResult: optimisticResult,
+    ),
+    result.result,
+  );
+}
+
+graphql.ObservableQuery<Mutation$RestoreRevision>
+    useWatchMutation$RestoreRevision(
+            WatchOptions$Mutation$RestoreRevision options) =>
+        graphql_flutter.useWatchMutation(options);
+
+class WidgetOptions$Mutation$RestoreRevision
+    extends graphql.MutationOptions<Mutation$RestoreRevision> {
+  WidgetOptions$Mutation$RestoreRevision({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$RestoreRevision? onCompleted,
+    graphql.OnMutationUpdate<Mutation$RestoreRevision>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult,
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$RestoreRevision(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationRestoreRevision,
+          parserFn: _parserFn$Mutation$RestoreRevision,
+        );
+
+  final OnMutationCompleted$Mutation$RestoreRevision? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$RestoreRevision
+    = graphql.MultiSourceResult<Mutation$RestoreRevision> Function(
+  Variables$Mutation$RestoreRevision, {
+  Object? optimisticResult,
+});
+typedef Builder$Mutation$RestoreRevision = widgets.Widget Function(
+  RunMutation$Mutation$RestoreRevision,
+  graphql.QueryResult<Mutation$RestoreRevision>?,
+);
+
+class Mutation$RestoreRevision$Widget
+    extends graphql_flutter.Mutation<Mutation$RestoreRevision> {
+  Mutation$RestoreRevision$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$RestoreRevision? options,
+    required Builder$Mutation$RestoreRevision builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$RestoreRevision(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            (
+              variables, {
+              optimisticResult,
+            }) =>
+                run(
+              variables.toJson(),
+              optimisticResult: optimisticResult,
+            ),
+            result,
+          ),
+        );
+}
+
+class Mutation$RestoreRevision$update_revisions_by_pk {
+  Mutation$RestoreRevision$update_revisions_by_pk({
+    required this.id,
+    required this.content,
+    required this.created_at,
+    required this.updated_at,
+    required this.slice_id,
+    required this.$__typename,
+  });
+
+  factory Mutation$RestoreRevision$update_revisions_by_pk.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$content = json['content'];
+    final l$created_at = json['created_at'];
+    final l$updated_at = json['updated_at'];
+    final l$slice_id = json['slice_id'];
+    final l$$__typename = json['__typename'];
+    return Mutation$RestoreRevision$update_revisions_by_pk(
+      id: (l$id as int),
+      content: (l$content as String),
+      created_at: DateTime.parse((l$created_at as String)),
+      updated_at: DateTime.parse((l$updated_at as String)),
+      slice_id: (l$slice_id as int),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String content;
+
+  final DateTime created_at;
+
+  final DateTime updated_at;
+
+  final int slice_id;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$content = content;
+    _resultData['content'] = l$content;
+    final l$created_at = created_at;
+    _resultData['created_at'] = l$created_at.toIso8601String();
+    final l$updated_at = updated_at;
+    _resultData['updated_at'] = l$updated_at.toIso8601String();
+    final l$slice_id = slice_id;
+    _resultData['slice_id'] = l$slice_id;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$content = content;
+    final l$created_at = created_at;
+    final l$updated_at = updated_at;
+    final l$slice_id = slice_id;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$content,
+      l$created_at,
+      l$updated_at,
+      l$slice_id,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$RestoreRevision$update_revisions_by_pk) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$content = content;
+    final lOther$content = other.content;
+    if (l$content != lOther$content) {
+      return false;
+    }
+    final l$created_at = created_at;
+    final lOther$created_at = other.created_at;
+    if (l$created_at != lOther$created_at) {
+      return false;
+    }
+    final l$updated_at = updated_at;
+    final lOther$updated_at = other.updated_at;
+    if (l$updated_at != lOther$updated_at) {
+      return false;
+    }
+    final l$slice_id = slice_id;
+    final lOther$slice_id = other.slice_id;
+    if (l$slice_id != lOther$slice_id) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$RestoreRevision$update_revisions_by_pk
+    on Mutation$RestoreRevision$update_revisions_by_pk {
+  CopyWith$Mutation$RestoreRevision$update_revisions_by_pk<
+          Mutation$RestoreRevision$update_revisions_by_pk>
+      get copyWith => CopyWith$Mutation$RestoreRevision$update_revisions_by_pk(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$RestoreRevision$update_revisions_by_pk<TRes> {
+  factory CopyWith$Mutation$RestoreRevision$update_revisions_by_pk(
+    Mutation$RestoreRevision$update_revisions_by_pk instance,
+    TRes Function(Mutation$RestoreRevision$update_revisions_by_pk) then,
+  ) = _CopyWithImpl$Mutation$RestoreRevision$update_revisions_by_pk;
+
+  factory CopyWith$Mutation$RestoreRevision$update_revisions_by_pk.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$RestoreRevision$update_revisions_by_pk;
+
+  TRes call({
+    int? id,
+    String? content,
+    DateTime? created_at,
+    DateTime? updated_at,
+    int? slice_id,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$RestoreRevision$update_revisions_by_pk<TRes>
+    implements CopyWith$Mutation$RestoreRevision$update_revisions_by_pk<TRes> {
+  _CopyWithImpl$Mutation$RestoreRevision$update_revisions_by_pk(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$RestoreRevision$update_revisions_by_pk _instance;
+
+  final TRes Function(Mutation$RestoreRevision$update_revisions_by_pk) _then;
+
+  static const _undefined = {};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? content = _undefined,
+    Object? created_at = _undefined,
+    Object? updated_at = _undefined,
+    Object? slice_id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$RestoreRevision$update_revisions_by_pk(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        content: content == _undefined || content == null
+            ? _instance.content
+            : (content as String),
+        created_at: created_at == _undefined || created_at == null
+            ? _instance.created_at
+            : (created_at as DateTime),
+        updated_at: updated_at == _undefined || updated_at == null
+            ? _instance.updated_at
+            : (updated_at as DateTime),
+        slice_id: slice_id == _undefined || slice_id == null
+            ? _instance.slice_id
+            : (slice_id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$RestoreRevision$update_revisions_by_pk<TRes>
+    implements CopyWith$Mutation$RestoreRevision$update_revisions_by_pk<TRes> {
+  _CopyWithStubImpl$Mutation$RestoreRevision$update_revisions_by_pk(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? content,
+    DateTime? created_at,
+    DateTime? updated_at,
+    int? slice_id,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
 class Variables$Mutation$DeleteRevisions {
-  factory Variables$Mutation$DeleteRevisions(
-          {required DateTime min_created_at}) =>
+  factory Variables$Mutation$DeleteRevisions({
+    required int slice_id,
+    required DateTime min_created_at,
+  }) =>
       Variables$Mutation$DeleteRevisions._({
+        r'slice_id': slice_id,
         r'min_created_at': min_created_at,
       });
 
@@ -2259,6 +3593,8 @@ class Variables$Mutation$DeleteRevisions {
   factory Variables$Mutation$DeleteRevisions.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    final l$slice_id = data['slice_id'];
+    result$data['slice_id'] = (l$slice_id as int);
     final l$min_created_at = data['min_created_at'];
     result$data['min_created_at'] =
         DateTime.parse((l$min_created_at as String));
@@ -2267,9 +3603,12 @@ class Variables$Mutation$DeleteRevisions {
 
   Map<String, dynamic> _$data;
 
+  int get slice_id => (_$data['slice_id'] as int);
   DateTime get min_created_at => (_$data['min_created_at'] as DateTime);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    final l$slice_id = slice_id;
+    result$data['slice_id'] = l$slice_id;
     final l$min_created_at = min_created_at;
     result$data['min_created_at'] = l$min_created_at.toIso8601String();
     return result$data;
@@ -2290,6 +3629,11 @@ class Variables$Mutation$DeleteRevisions {
         runtimeType != other.runtimeType) {
       return false;
     }
+    final l$slice_id = slice_id;
+    final lOther$slice_id = other.slice_id;
+    if (l$slice_id != lOther$slice_id) {
+      return false;
+    }
     final l$min_created_at = min_created_at;
     final lOther$min_created_at = other.min_created_at;
     if (l$min_created_at != lOther$min_created_at) {
@@ -2300,8 +3644,12 @@ class Variables$Mutation$DeleteRevisions {
 
   @override
   int get hashCode {
+    final l$slice_id = slice_id;
     final l$min_created_at = min_created_at;
-    return Object.hashAll([l$min_created_at]);
+    return Object.hashAll([
+      l$slice_id,
+      l$min_created_at,
+    ]);
   }
 }
 
@@ -2314,7 +3662,10 @@ abstract class CopyWith$Variables$Mutation$DeleteRevisions<TRes> {
   factory CopyWith$Variables$Mutation$DeleteRevisions.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$DeleteRevisions;
 
-  TRes call({DateTime? min_created_at});
+  TRes call({
+    int? slice_id,
+    DateTime? min_created_at,
+  });
 }
 
 class _CopyWithImpl$Variables$Mutation$DeleteRevisions<TRes>
@@ -2330,9 +3681,14 @@ class _CopyWithImpl$Variables$Mutation$DeleteRevisions<TRes>
 
   static const _undefined = {};
 
-  TRes call({Object? min_created_at = _undefined}) =>
+  TRes call({
+    Object? slice_id = _undefined,
+    Object? min_created_at = _undefined,
+  }) =>
       _then(Variables$Mutation$DeleteRevisions._({
         ..._instance._$data,
+        if (slice_id != _undefined && slice_id != null)
+          'slice_id': (slice_id as int),
         if (min_created_at != _undefined && min_created_at != null)
           'min_created_at': (min_created_at as DateTime),
       }));
@@ -2344,7 +3700,11 @@ class _CopyWithStubImpl$Variables$Mutation$DeleteRevisions<TRes>
 
   TRes _res;
 
-  call({DateTime? min_created_at}) => _res;
+  call({
+    int? slice_id,
+    DateTime? min_created_at,
+  }) =>
+      _res;
 }
 
 class Mutation$DeleteRevisions {
@@ -2494,6 +3854,15 @@ const documentNodeMutationDeleteRevisions = DocumentNode(definitions: [
     name: NameNode(value: 'DeleteRevisions'),
     variableDefinitions: [
       VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'slice_id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'bigint'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'min_created_at')),
         type: NamedTypeNode(
           name: NameNode(value: 'timestamptz'),
@@ -2501,7 +3870,7 @@ const documentNodeMutationDeleteRevisions = DocumentNode(definitions: [
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -2513,13 +3882,27 @@ const documentNodeMutationDeleteRevisions = DocumentNode(definitions: [
             name: NameNode(value: 'where'),
             value: ObjectValueNode(fields: [
               ObjectFieldNode(
-                name: NameNode(value: 'created_at'),
+                name: NameNode(value: '_and'),
                 value: ObjectValueNode(fields: [
                   ObjectFieldNode(
-                    name: NameNode(value: '_lt'),
-                    value:
-                        VariableNode(name: NameNode(value: 'min_created_at')),
-                  )
+                    name: NameNode(value: 'slice_id'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: '_eq'),
+                        value: VariableNode(name: NameNode(value: 'slice_id')),
+                      )
+                    ]),
+                  ),
+                  ObjectFieldNode(
+                    name: NameNode(value: 'updated_at'),
+                    value: ObjectValueNode(fields: [
+                      ObjectFieldNode(
+                        name: NameNode(value: '_lt'),
+                        value: VariableNode(
+                            name: NameNode(value: 'min_created_at')),
+                      )
+                    ]),
+                  ),
                 ]),
               )
             ]),

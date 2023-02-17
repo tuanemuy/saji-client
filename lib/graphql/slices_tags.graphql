@@ -22,6 +22,51 @@ mutation CreateSlicesTagsWithTag(
   }
 }
 
+mutation CreateAndDeleteSlicesTags(
+  $slice_id: bigint!
+  $tag_ids: [bigint!] = []
+  $tags: [slices_tags_insert_input!] = []
+) {
+  delete_slices_tags(
+    where: {
+      _and: { slice_id: { _eq: $slice_id }, tag_id: { _nin: $tag_ids } }
+    }
+  ) {
+    returning {
+      slice_id
+      tag_id
+    }
+  }
+
+  insert_slices_tags(
+    objects: $tags
+    on_conflict: { constraint: slices_tags_pkey, update_columns: tag_id }
+  ) {
+    returning {
+      slice_id
+      tag_id
+    }
+  }
+}
+
+query GetSlicesTags($slice_id: bigint!) {
+  slices_tags(where: { slice_id: { _eq: $slice_id } }) {
+    slice_id
+    tag_id
+    tag {
+      id
+      name
+      color_id
+      color {
+        id
+        hex
+        user_id
+      }
+      user_id
+    }
+  }
+}
+
 mutation DeleteSlicesTags($slice_id: bigint!, $tag_id: bigint!) {
   delete_slices_tags_by_pk(slice_id: $slice_id, tag_id: $tag_id) {
     slice_id
